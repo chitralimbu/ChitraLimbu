@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Blog</title>
+</head>
+
+<body>
+	<h1>Welcome to my blog page</h1>
+	<div class="blog-items" id="blogs">
+		<h2>Read my blogs</h2>
+			<div th:each="blog : ${allBlogs}">
+				<p th:text="${blog.title}">TITLE</p><br/>
+				<p th:text="${blog.topic}">TOPIC</p><br/>
+				<p th:text="${blog.body}">BODY</p><br/>
+				<p th:text="${blog.image}">IMAGE</p><br/>
+			<hr>
+			</div>
+	</div>
+</body>
+</html>

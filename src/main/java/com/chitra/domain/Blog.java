@@ -1,17 +1,30 @@
 package com.chitra.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Data
-@RequiredArgsConstructor
-//is a mongodb collection
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@Document(collection="blog")
+@Getter
+@Setter
 public class Blog {
-
-	private final int id;
-	private final String title;
-	private final String topic;
-	private final String body;
-	private final String image;
+	
+	@Id
+	private int id;
+	private String title;
+	private String topic;
+	private String body;
+	private String image;	
 	
 }

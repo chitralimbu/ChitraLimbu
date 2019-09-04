@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Blog</title>
+<title>Unique Topic</title>
 </head>
 
 <body>
-	<h1>Welcome to my blog page</h1>
-	<div class="category-items">
-		<ul th:each="topic : ${uniqueTopics}">
-			<a th:href="@{/blog/} + ${topic}"><li th:text="${topic}">TOPIC</li></a>
-		</ul>
-	</div>
+	<h1>Read unique topics</h1>
 	<div class="blog-items" id="blogs">
 		<h2>Read my blogs</h2>
-		<div th:each="blog : ${allBlogs}">
+		<div th:each="blog : ${topics}">
 			<p th:text="${blog.title}">TITLE</p>
 			<br />
 			<p th:text="${blog.topic}">TOPIC</p>

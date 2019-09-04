@@ -1,7 +1,12 @@
 package com.chitra.domain;
 
+import java.io.Serializable;
+
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,13 +23,21 @@ import lombok.ToString;
 @Document(collection="blog")
 @Getter
 @Setter
-public class Blog {
+public class Blog implements Serializable{
+	
+	private static final long serialVersionUID = 6869144070018235511L;
 	
 	@Id
 	private int id;
+	
+	@NotEmpty(message="Title cannot be blank")
 	private String title;
+	
+	@NotEmpty(message="Topic cannot be blank")
 	private String topic;
+	
 	private String body;
-	private String image;	
+	
+	private String image = "default.jpg";	
 	
 }

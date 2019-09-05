@@ -2,7 +2,9 @@ package com.chitra.domain;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,12 +30,13 @@ public class Blog implements Serializable{
 	private static final long serialVersionUID = 6869144070018235511L;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@NotEmpty(message="Title cannot be blank")
+	@NotBlank(message="Title cannot be blank")
 	private String title;
 	
-	@NotEmpty(message="Topic cannot be blank")
+	@NotBlank(message="Topic cannot be blank")
 	private String topic;
 	
 	private String body;

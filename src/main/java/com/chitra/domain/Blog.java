@@ -2,8 +2,6 @@ package com.chitra.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
@@ -30,7 +28,6 @@ public class Blog implements Serializable{
 	private static final long serialVersionUID = 6869144070018235511L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
 	@NotBlank(message="Title cannot be blank")

@@ -38,6 +38,4 @@ public class Blog implements Serializable{
 	private String topic;
 	private String body;
 	private String image = "default.jpg";	
-	private MultipartFile imageFile;
-	
 }

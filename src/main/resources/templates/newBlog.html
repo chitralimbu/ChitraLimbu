@@ -17,6 +17,8 @@
         
         <p>Body: <textarea name="body" th:field="*{body}"></textarea></p>
         <p>Image: <input type="text" th:field="*{image}" /></p>
+        
+        <p>File to upload:<input type="file" name="file" th:field="*{imageFile}"/></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </body>

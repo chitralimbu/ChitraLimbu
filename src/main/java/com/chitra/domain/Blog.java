@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,9 +36,8 @@ public class Blog implements Serializable{
 	
 	@NotBlank(message="Topic cannot be blank")
 	private String topic;
-	
 	private String body;
-	
 	private String image = "default.jpg";	
+	private MultipartFile imageFile;
 	
 }

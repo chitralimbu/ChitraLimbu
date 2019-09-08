@@ -2,8 +2,12 @@ package com.chitra.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
+
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,66 +15,34 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Data
 @RequiredArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Document(collection="user")
-public class User implements UserDetails{
-
-	private static final long serialVersionUID = -5212153535323508907L;
+public class User{
 	
 	@Id
 	private int id;
+	@NonNull
+	@NotBlank(message="Username cannot be blank")
 	private String username;
+	@NonNull
+	@NotBlank(message="Password cannot be blank")
 	private String password;
+	@NonNull
 	private String fullname;
-	private String street;
-	private String city;
-	private String state;
-	private String zip;
-	private String phoneNumber;
+	@NonNull
+	@NotBlank(message="e-mail cannot be blank")
+	private String email;
 	
-	public User(String username, String password, String fullname, String street, String city, String state, String zip,
-			String phoneNumber) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.fullname = fullname;
-		this.street = street;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.phoneNumber = phoneNumber;
-	}
-	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
+	@DBRef
+	private Set<Role> roles;
 
 }

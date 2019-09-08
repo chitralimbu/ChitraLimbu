@@ -2,41 +2,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Register</title>
-  </head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
 
   <body>
     <h1>Register</h1>
 
-    <form method="POST" th:action="@{/register}" id="registerForm">
-
+    <form action="#" method="POST" th:action="@{/register}" th:object="${user}" id="registerForm">
+	<div class = "form-group">
         <label for="username">Username: </label>
-        <input type="text" name="username"/><br/>
-
+        <input type="text" class="form-control" name="username" th:classappend="${not #lists.isEmpty(#fields.errors('username'))} ? is-invalid"
+        required/><br/>
+		<div class="invalid-feedback">
+   			<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
+		</div>
+	</div>
+	<div class = "form-group">
         <label for="password">Password: </label>
-        <input type="password" name="password"/><br/>
-
+        <input type="password" class="form-control" name="password"/><br/>
+		<div class="invalid-feedback">
+   			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+		</div>
+      </div>
+      
+      <div class = "form-group">
         <label for="confirm">Confirm password: </label>
-        <input type="password" name="confirm"/><br/>
-
+        <input type="password" class="form-control" name="confirm"/><br/>
+		<div class="invalid-feedback">
+   			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+		</div>
+       </div>
         <label for="fullname">Full name: </label>
-        <input type="text" name="fullname"/><br/>
+        <input type="text" class="form-control"name="fullname"/><br/>
 
-        <label for="street">Street: </label>
-        <input type="text" name="street"/><br/>
-
-        <label for="city">City: </label>
-        <input type="text" name="city"/><br/>
-
-        <label for="state">State: </label>
-        <input type="text" name="state"/><br/>
-
-        <label for="zip">Zip: </label>
-        <input type="text" name="zip"/><br/>
-
-        <label for="phone">Phone: </label>
-        <input type="text" name="phone"/><br/>
-
-        <input type="submit" value="Register"/>
+	<div class = "form-group">
+   		 <label for="email">E-Mail: </label>
+       	 <input type="text" class="form-control" name="email"/><br/>
+		 <div class="invalid-feedback">
+   			<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</p>
+		 </div>
+	</div>
+        <input type="submit" class="btn btn-primary" value="Register"/>
     </form>
 
   </body>

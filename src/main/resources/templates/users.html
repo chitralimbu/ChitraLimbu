@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Blog</title>
+</head>
+
+<body>
+	<form method="POST" th:action="@{/logout}">
+		<input type="submit" value="Logout" />
+	</form>
+	<h1>Welcome to my blog page</h1>
+	<div class="blog-items" id="blogs">
+		<h2>All Users</h2>
+		<div th:each="user : ${users}">
+			<p th:text="${user.username}">USERNAME</p>
+			<br />
+			<p th:text="${user.fullname}">FULLNAME</p>
+			<br />
+			<p th:text="${user.phoneNumber}">PHONE</p>
+			<hr>
+		</div>
+	</div>
+</body>
+</html>

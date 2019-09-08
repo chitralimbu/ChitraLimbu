@@ -1,25 +1,48 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Write a new Blog</title>
 </head>
 
 <body>
+	<form method="POST" th:action="@{/logout}">
+		<input type="submit" value="Logout" />
+	</form>
 	<h1>New blog entry</h1>
-	          
-	<form action="#" th:action="@{/blog/new}" th:object="${blog}" method="post" enctype="multipart/form-data">
-    	<p>Id: <input type="text" th:field="*{id}" /></p>
-        <p>Title: <input type="text" th:field="*{title}" /></p>
-        <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</p>
-       
-        <p>Topic: <input type="text" th:field="*{topic}" /></p>
-        <p th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Topic Error</p>
-        
-        <p>Body: <textarea name="body" th:field="*{body}"></textarea></p>
-        <p>Image: <input type="text" th:field="*{image}" /></p>
-        
-        <p>File to upload:<input type="file" name="file"/></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+
+	<form action="#" th:action="@{/blog/new}" th:object="${blog}"
+		method="post" enctype="multipart/form-data">
+		<p>
+			Id: <input type="text" th:field="*{id}" />
+		</p>
+		<p>
+			Title: <input type="text" th:field="*{title}" />
+		</p>
+		<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
+			Error</p>
+
+		<p>
+			Topic: <input type="text" th:field="*{topic}" />
+		</p>
+		<p th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Topic
+			Error</p>
+
+		<p>
+			Body:
+			<textarea name="body" th:field="*{body}"></textarea>
+		</p>
+		<p>
+			Image: <input type="text" th:field="*{image}" />
+		</p>
+
+		<p>
+			File to upload:<input type="file" name="file" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
 </body>
 </html>

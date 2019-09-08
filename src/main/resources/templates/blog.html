@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Blog</title>
 </head>
 
 <body>
+	<form method="POST" th:action="@{/logout}">
+		<input type="submit" value="Logout" />
+	</form>
 	<h1>Welcome to my blog page</h1>
 	<div class="category-items">
 		<ul th:each="topic : ${uniqueTopics}">
@@ -19,9 +23,7 @@
 			<p th:text="${blog.topic}">TOPIC</p>
 			<br />
 			<p th:text="${blog.body}">BODY</p>
-			<br />
-			<img th:src="@{/images/} + ${blog.image}" />
-			<br />
+			<br /> <img th:src="@{/images/} + ${blog.image}" /> <br />
 			<hr>
 		</div>
 	</div>

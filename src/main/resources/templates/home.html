@@ -6,6 +6,9 @@
 </head>
 
 <body>
+	<form method="POST" th:action="@{/logout}">
+		<input type="submit" value="Logout" />
+	</form>
 	<h1>Welcome to my website</h1>
 	<img th:src="@{/images/NERG.png}" />
 </body>

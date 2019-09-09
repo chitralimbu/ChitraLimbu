@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.chitra.domain.RegistrationForm;
 import com.chitra.domain.Role;
 import com.chitra.domain.User;
 import com.chitra.repository.RoleRepository;
@@ -41,7 +42,7 @@ public class RegistrationController {
 	
 	@GetMapping
 	public String registerForm(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("register", new RegistrationForm());
 		return "registration";
 	}
 	
@@ -51,16 +52,15 @@ public class RegistrationController {
 	 */
 	
 	@PostMapping
-	public String processRegistration(@ModelAttribute @Valid User user, BindingResult bindingResult, Model model) {
+	public String processRegistration(@ModelAttribute @Valid RegistrationForm register, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
 			log.error("Errors in form");
 			return "registration";
 		}
-		User newUser = user;
-		newUser.setPassword(encoder.encode(newUser.getPassword()));
-		newUser.setId(user.hashCode());
+		User newUser = new User(register.getUsername(), encoder.encode(register.getPassword()), register.getFullname(), register.getEmail());
+		newUser.setId(newUser.hashCode());
 		Role role = roleRepo.findByRole("ROLE_USER");
-		user.setRoles(new HashSet<>(Arrays.asList(role)));
+		newUser.setRoles(new HashSet<>(Arrays.asList(role)));
 		userRepo.save(newUser);
 		return "redirect:/login";
 	}

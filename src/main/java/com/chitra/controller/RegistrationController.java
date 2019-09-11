@@ -52,7 +52,7 @@ public class RegistrationController {
 	 */
 	
 	@PostMapping
-	public String processRegistration(@ModelAttribute @Valid RegistrationForm register, BindingResult bindingResult, Model model) {
+	public String processRegistration(@ModelAttribute("register") @Valid RegistrationForm register, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
 			log.error("Errors in form");
 			return "registration";

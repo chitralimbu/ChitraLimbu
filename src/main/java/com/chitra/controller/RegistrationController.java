@@ -42,7 +42,7 @@ public class RegistrationController {
 	
 	@GetMapping
 	public String registerForm(Model model) {
-		model.addAttribute("register", new RegistrationForm());
+		model.addAttribute("user", new User());
 		return "registration";
 	}
 	
@@ -52,16 +52,15 @@ public class RegistrationController {
 	 */
 	
 	@PostMapping
-	public String processRegistration(@ModelAttribute("register") @Valid RegistrationForm register, BindingResult bindingResult, Model model) {
+	public String processRegistration(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
 		if(bindingResult.hasErrors()) {
 			log.error("Errors in form");
 			return "registration";
 		}
-		User newUser = new User(register.getUsername(), encoder.encode(register.getPassword()), register.getFullname(), register.getEmail());
-		newUser.setId(newUser.hashCode());
+		user.setId(user.hashCode());
 		Role role = roleRepo.findByRole("ROLE_USER");
-		newUser.setRoles(new HashSet<>(Arrays.asList(role)));
-		userRepo.save(newUser);
+		user.setRoles(new HashSet<>(Arrays.asList(role)));
+		userRepo.save(user);
 		return "redirect:/login";
 	}
 }

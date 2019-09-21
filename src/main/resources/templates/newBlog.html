@@ -14,9 +14,6 @@
 	<form action="#" th:action="@{/blog/new}" th:object="${blog}"
 		method="post" enctype="multipart/form-data">
 		<p>
-			Id: <input type="text" th:field="*{id}" />
-		</p>
-		<p>
 			Title: <input type="text" th:field="*{title}" />
 		</p>
 		<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
@@ -27,17 +24,20 @@
 		</p>
 		<p th:if="${#fields.hasErrors('topic')}" th:errors="*{topic}">Topic
 			Error</p>
-
 		<p>
 			Body:
 			<textarea name="body" th:field="*{body}"></textarea>
 		</p>
+		
+		<p th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Body
+			Error</p>
+			
 		<p>
 			Image: <input type="text" th:field="*{image}" />
 		</p>
 
 		<p>
-			File to upload:<input type="file" name="file" />
+			File to upload (Optional):<input type="file" name="file" />
 		</p>
 		<p>
 			<input type="submit" value="Submit" /> <input type="reset"

@@ -3,6 +3,7 @@ package com.chitra.domain;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -35,6 +36,8 @@ public class Blog implements Serializable{
 	
 	@NotBlank(message="Topic cannot be blank")
 	private String topic;
+	
+	@Size(min = 10, max = 200, message = "Body must be between 10 and 200 characters")
 	private String body;
 	private String image = "default.jpg";	
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.chitra.domain.RegistrationForm;
 import com.chitra.domain.Role;
 import com.chitra.domain.User;
 import com.chitra.repository.RoleRepository;
@@ -57,6 +56,7 @@ public class RegistrationController {
 			log.error("Errors in form");
 			return "registration";
 		}
+		user.setPassword(encoder.encode(user.getPassword()));
 		user.setId(user.hashCode());
 		Role role = roleRepo.findByRole("ROLE_USER");
 		user.setRoles(new HashSet<>(Arrays.asList(role)));

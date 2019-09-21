@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Upload new Video</h1>
+<form method="POST" th:action="@{/media/videos/add}" enctype="multipart/form-data">
+    Title:<input type="text" name="title" />
+    Video:<input type="file" name="file" accept="video/*" />
+    <input type="submit" value="Upload" />
+</form>
+</body>
+</html>

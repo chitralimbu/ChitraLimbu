@@ -1,4 +1,4 @@
-package com.chitra.controller;
+package com.chitra.media.controller;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.chitra.domain.Video;
+import com.chitra.media.domain.Video;
 import com.chitra.service.VideoService;
 
 @Controller

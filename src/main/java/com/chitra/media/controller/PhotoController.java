@@ -1,4 +1,4 @@
-package com.chitra.controller;
+package com.chitra.media.controller;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.chitra.domain.Photo;
+import com.chitra.media.domain.Photo;
 import com.chitra.service.PhotoService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -50,5 +50,13 @@ public class PhotoController {
 		model.addAttribute("image", Base64.getEncoder().encodeToString(photo.getImage().getData()));
 		return "photos";
 	}
-
+	
+	@GetMapping("/photos/title/{title}")
+	public String getTitlePhoto(@PathVariable String title, Model model) {
+		Photo photo = photoService.getPhotoByTitle(title);
+		model.addAttribute("title", photo.getTitle());
+		model.addAttribute("image", Base64.getEncoder().encodeToString(photo.getImage().getData()));
+		return "photos";
+	}
+	
 }

@@ -2,14 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Chitra Limbu Website</title>
+<title>Chitra Limbu</title>
 </head>
 
 <body>
-	<form method="POST" th:action="@{/logout}">
-		<input type="submit" value="Logout" />
-	</form>
-	<h1>Welcome to my website</h1>
-	<img th:src="@{/images/NERG.png}" />
+	<h1>Chitra Limbu</h1>
+
+	<div class="links">
+		<ul>
+			<li><a th:href="@{/}">Profile</a></li>
+			<li>Java</li>
+			<li>Blog</li>
+		</ul>
+	</div>
+	<div class="experience" id="experience">
+		<ul th:each="exp : ${allExperience}">
+			<li th:text="${exp.title}">Title</li>
+			<li th:text="${exp.startDate} + ' - ' + ${exp.endDate}">Duration</li>
+			<li th:text="${exp.organisation}">Organisation</li>
+			<li th:text="${exp.description}">Description</li>
+			<li>Tasks
+				<ul th:each="tasks: ${exp.tasks}">
+					<li th:text="${tasks.task}">Task</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
 </body>
 </html>

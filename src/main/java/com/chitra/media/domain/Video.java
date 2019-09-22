@@ -1,4 +1,4 @@
-package com.chitra.domain;
+package com.chitra.media.domain;
 
 import java.io.InputStream;
 

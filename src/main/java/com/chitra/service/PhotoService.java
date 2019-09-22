@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.chitra.domain.Photo;
+import com.chitra.media.domain.Photo;
 import com.chitra.repository.PhotoRepository;
 
 @Service
@@ -27,5 +27,9 @@ public class PhotoService {
 	
 	public Photo getPhoto(String id) {
 		return photoRepo.findById(id).get();
+	}
+	
+	public Photo getPhotoByTitle(String title) {
+		return photoRepo.findByTitle(title);
 	}
 }

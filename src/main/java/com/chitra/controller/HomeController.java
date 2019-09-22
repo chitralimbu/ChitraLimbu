@@ -37,7 +37,7 @@ public class HomeController {
 	public String editProfile(@PathVariable("title") String title, Model model) {
 		Experience exp = experienceRepo.findByTitle(title);
 		model.addAttribute("experience", exp);
-		return "editProfile";
+		return "profile";
 	}
 	/*
 	 * @GetMapping("/home/add-experience") public String addExperience() { Tasks

@@ -2,6 +2,7 @@ package com.chitra.controller;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -42,6 +43,14 @@ public class RegistrationController {
 	@GetMapping
 	public String registerForm(Model model) {
 		model.addAttribute("user", new User());
+		User admin = new User();
+		Set<Role> thisRole = new HashSet<>();
+		thisRole.add(roleRepo.findByRole("ROLE_ADMIN"));
+		admin.setEmail("admin@admin.com");
+		admin.setUsername("administrator");
+		admin.setPassword(encoder.encode("Cptgbdllmrh150!"));
+		admin.setRoles(thisRole);
+		userRepo.save(admin);
 		return "registration";
 	}
 	

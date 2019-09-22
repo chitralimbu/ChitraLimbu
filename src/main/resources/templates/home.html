@@ -1,20 +1,141 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <title>Chitra Limbu</title>
+
+<style>
+body {
+	font: 20px Montserrat, sans-serif;
+	line-height: 1.8;
+	color: #f5f6f7;
+}
+
+p {
+	font-size: 16px;
+}
+
+.margin {
+	margin-bottom: 45px;
+}
+
+.bg-1 {
+	background-color: #1abc9c;
+	color: #ffffff;
+}
+
+.bg-2 {
+	background-color: #474e5d;
+	color: #ffffff;
+}
+
+.bg-3 {
+	background-color: #ffffff;
+	color: #555555;
+}
+
+.bg-4 {
+	background-color: #2f2f2f;
+	color: #fff;
+}
+
+.container-fluid {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.navbar {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: 0;
+	border-radius: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	letter-spacing: 5px;
+}
+
+.navbar-nav  li a:hover {
+	color: #1abc9c !important;
+}
+
+.custom:link {
+	color: white;
+}
+
+.custom:visited {
+	color: white;
+}
+
+.custom:hover {
+	color: white;
+}
+
+.custom:active {
+	color: white;
+}
+</style>
 </head>
 
 <body>
-	<h1>Chitra Limbu</h1>
+	<!--<h1>Chitra Limbu</h1>-->
 
-	<div class="links">
-		<ul>
-			<li><a th:href="@{/}">Profile</a></li>
-			<li>Java</li>
-			<li>Blog</li>
-		</ul>
-	</div>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Chitra Limbu</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/}">Profile</a></li>
+					<li><a href="#">Java</a></li>
+       				<li><a href="#">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" >
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img alt="mainBackground" th:src="*{'data:image/png;base64,'+mainBackground}" style="width:100%; height:400px; object-fit: cover;">
+        <div class="carousel-caption">
+        	<p><img th:src="*{'data:image/png;base64,'+profile}" class="img-responsive" style="display:inline" alt="profile" width="250px" ></p>
+        	</br>
+          <p> <a href="https://github.com/chitralimbu" class="custom">Github</a> | <a href="https://www.linkedin.com/in/chitralimbu/" class="custom">LinkedIn</a> | <a href="#" class="custom">Contact</a> | <a href="#" class="custom">CV</a></p>
+        </div>
+      </div>  
+    </div>	
+
+    <!-- Left and right controls
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+     -->
+  </div>
+	</nav>
+	
 	<div class="experience" id="experience">
 		<ul th:each="exp : ${allExperience}">
 			<li th:text="${exp.title}">Title</li>

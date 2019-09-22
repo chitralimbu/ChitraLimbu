@@ -35,7 +35,7 @@ public class PhotoController {
 	public String addPhoto(@RequestParam("title") String title, @RequestParam("image") MultipartFile image, Model model) throws IOException{
 		log.debug("Inside addPhoto");
 		String id = photoService.addPhoto(title, image);
-		return "redirect:media/photos/"+id;
+		return "redirect:/media/photos/"+id;
 	}
 
 	@GetMapping("/photos/upload")

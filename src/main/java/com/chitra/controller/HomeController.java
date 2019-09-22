@@ -46,23 +46,5 @@ public class HomeController {
 		model.addAttribute("experience", exp);
 		return "profile";
 	}
-	/*
-	 * @GetMapping("/home/add-experience") public String addExperience() { Tasks
-	 * task1 = new Tasks(); task1.setTask("Monitor");
-	 * 
-	 * tasksRepo.save(task1);
-	 * 
-	 * Tasks task2 = new Tasks(); task2.setTask("Automate");
-	 * 
-	 * tasksRepo.save(task2);
-	 * 
-	 * Experience tata = new Experience();
-	 * tata.setTitle("Tata Consultancy Services"); tata.setStartDate("March 2018");
-	 * tata.setEndDate("Present");
-	 * tata.setOrganisation("Tata Consultancy Services");
-	 * tata.setDescription("Java Developer"); tata.setTasks(Arrays.asList(task1,
-	 * task2)); experienceRepo.save(tata);
-	 * 
-	 * return "redirect:/home"; }
-	 */
+	 
 }

@@ -46,18 +46,6 @@ public class RegistrationController {
 		return "registration";
 	}
 	
-	@GetMapping("/add/user/admin/now")
-	public String addAdmin() {
-		User admin = new User();
-		Set<Role> thisRole = new HashSet<>();
-		thisRole.add(roleRepo.findByRole("ROLE_ADMIN"));
-		admin.setEmail("admin@admin.com");
-		admin.setUsername("administrator");
-		admin.setPassword(encoder.encode("Cptgbdllmrh150!"));
-		admin.setRoles(thisRole);
-		userRepo.save(admin);
-		return "registration";
-	}
 	/*
 	 * @PostMapping public String processRegistration(RegistrationForm form) {
 	 * userRepo.save(form.toUser(encoder)); return "redirect:/login"; }

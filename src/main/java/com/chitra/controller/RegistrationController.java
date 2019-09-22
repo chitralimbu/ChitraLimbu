@@ -43,6 +43,11 @@ public class RegistrationController {
 	@GetMapping
 	public String registerForm(Model model) {
 		model.addAttribute("user", new User());
+		return "registration";
+	}
+	
+	@GetMapping("/add/user/admin/now")
+	public String addAdmin() {
 		User admin = new User();
 		Set<Role> thisRole = new HashSet<>();
 		thisRole.add(roleRepo.findByRole("ROLE_ADMIN"));
@@ -53,7 +58,6 @@ public class RegistrationController {
 		userRepo.save(admin);
 		return "registration";
 	}
-	
 	/*
 	 * @PostMapping public String processRegistration(RegistrationForm form) {
 	 * userRepo.save(form.toUser(encoder)); return "redirect:/login"; }

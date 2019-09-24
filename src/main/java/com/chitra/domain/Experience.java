@@ -22,20 +22,26 @@ import lombok.ToString;
 @Document(collection="experience")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Experience {
 	@Id
 	private String id;
-	@NotBlank(message="Title canot be blank")
 	private String title;
-	@NotBlank(message="StartDate canot be blank")
 	private String startDate;
-	@NotBlank(message="End Date canot be blank (Present if still working there)")
 	private String endDate;
-	@NotBlank(message="Organisation canot be blank")
 	private String organisation;
 	private String description;
-	@DBRef
-	private List<Tasks> tasks;
+	private List<String> tasks;
+	
+	public Experience() {
+		
+	}
+	
+	public Experience(String id, String title, String startDate, String endDate, String organisation, String description) {
+		this.id = id;
+		this.title = title;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.organisation = organisation;
+		this.description = description;
+	}
 }

@@ -40,8 +40,9 @@ public class SetupController {
 
 	@GetMapping
 	public String setup() {
-		roleSetup();
-		userSetup();
+		/*
+		 * roleSetup(); userSetup();
+		 */
 		expSetup();
 		return "redirect:/login";
 	}
@@ -68,16 +69,13 @@ public class SetupController {
 	}
 
 	private void expSetup() {
-		Tasks task1 = new Tasks(); task1.setTask("Monitor");
-		taskRepo.save(task1);
-		Tasks task2 = new Tasks(); task2.setTask("Automate");
-		taskRepo.save(task2);
 		Experience tata = new Experience();
-		tata.setTitle("Tata Consultancy Services"); tata.setStartDate("March 2018");
+		tata.setTitle("tata"); 
+		tata.setStartDate("March 2018");
 		tata.setEndDate("Present");
 		tata.setOrganisation("Tata Consultancy Services");
-		tata.setDescription("Java Developer"); tata.setTasks(Arrays.asList(task1,
-		task2)); 
+		tata.setDescription("Java Developer"); 
+		tata.setTasks(Arrays.asList("Monitor", "Automate")); 
 		expRepo.save(tata);
 	}
 

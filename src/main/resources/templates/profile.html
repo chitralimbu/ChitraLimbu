@@ -6,7 +6,16 @@
 </head>
 
 <body>
-		
+	
+	<form action="#" th:action="@{/profile/update}" th:object="${experience}" method="post" >
+		Title<input type="text" th:field="*{title}" value="${experience.title}"/><br />
+		Start Date (Monty Year) <input type="text" th:field="*{startDate}" value="${experience.startDate}"/><br />
+		End Date (Monty Year or Present) <input type="text" th:field="*{endDate}" value="${experience.endDate}"/><br />
+		Organisation <input type="text" th:field="*{organisation}" value="${experience.organisation}"/><br />
+		Description  <input type="text" th:field="*{description}" value="${experience.description}"/><br />
+		Tasks <textarea name="task" th:text="${task}" rows="10">TASK HERE</textarea>
+		<input type="submit" value="Submit" /> 
+	</form>	
 </body>
 
 </html>

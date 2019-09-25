@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chitra.domain.Experience;
 import com.chitra.domain.Role;
-import com.chitra.domain.Tasks;
 import com.chitra.domain.User;
 import com.chitra.repository.ExperienceRepository;
 import com.chitra.repository.RoleRepository;

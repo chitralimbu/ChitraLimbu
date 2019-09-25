@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chitra.domain.Experience;
 import com.chitra.media.domain.Photo;
 import com.chitra.repository.ExperienceRepository;
-import com.chitra.repository.TasksRepository;
 import com.chitra.service.PhotoService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -52,7 +51,9 @@ public class HomeController {
 	}
 	
 	@GetMapping("/profile/new")
-	public String newProfile() {
+	public String newProfile(Model model) {
+		model.addAttribute("experience", new Experience());
+		model.addAttribute("task", "");
 		return "profile";
 	}
 	

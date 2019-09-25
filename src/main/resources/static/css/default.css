@@ -53,16 +53,20 @@ p {
 
 .custom:link {
 	color: white;
+	text-decoration: none;
 }
 
 .custom:visited {
 	color: white;
+	text-decoration: none;
 }
 
 .custom:hover {
-	color: white;
+	color: #1abc9c !important;
+	text-decoration: none;
 }
 
 .custom:active {
 	color: white;
+	text-decoration: none;
 }

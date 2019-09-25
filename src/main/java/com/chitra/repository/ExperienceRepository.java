@@ -6,4 +6,5 @@ import com.chitra.domain.Experience;
 
 public interface ExperienceRepository extends MongoRepository<Experience, String>{
 	Experience findByTitle(String title);
+	Experience findByOrganisation(String org);
 }

@@ -2,6 +2,7 @@ package com.chitra.controller;
 
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chitra.domain.Experience;
 import com.chitra.media.domain.Photo;
 import com.chitra.repository.ExperienceRepository;
+import com.chitra.service.ExperienceComparator;
 import com.chitra.service.PhotoService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -38,15 +40,16 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(Model model, HttpServletResponse response) {
-		//String headerValue = CacheControl.maxAge(365, TimeUnit.DAYS).getHeaderValue();
+		String headerValue = CacheControl.maxAge(1, TimeUnit.DAYS).getHeaderValue();
 		List<Experience> allExperience = experienceRepo.findAll();
+		Collections.sort(allExperience, new ExperienceComparator());
 		log.debug(String.format("allExperiencesize %d", allExperience.size()));
 		model.addAttribute("allExperience", allExperience);
 		Photo photo = photoService.getPhotoByTitle("mainBackground");
 		Photo profile = photoService.getPhotoByTitle("profile");
 		model.addAttribute("mainBackground", Base64.getEncoder().encodeToString(photo.getImage().getData()));
 		model.addAttribute("profile", Base64.getEncoder().encodeToString(profile.getImage().getData()));
-		//response.addHeader("Cache-Control", headerValue);
+		response.addHeader("Cache-Control", headerValue);
 		return "home";
 	}
 	
@@ -59,7 +62,7 @@ public class HomeController {
 	
 	@GetMapping("/profile/{title}")
 	public String editProfile(@PathVariable("title") String title, Model model) {
-		Experience exp = experienceRepo.findByTitle(title);
+		Experience exp = experienceRepo.findByOrganisation(title);
 		String allTasks = exp.getTasks().stream().collect(Collectors.joining("\n"));
 		model.addAttribute("experience", exp);
 		model.addAttribute("task", allTasks);
@@ -76,6 +79,6 @@ public class HomeController {
 		toUpdate.setTasks(Arrays.asList(task.split("\n")));
 		//exp.setTasks(Arrays.asList(task.split("\n")));		
 		experienceRepo.save(toUpdate);
-		return "redirect:/profile/"+toUpdate.getTitle();
+		return "redirect:/profile/"+toUpdate.getOrganisation();
 	}
 }

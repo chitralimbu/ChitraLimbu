@@ -1,0 +1,33 @@
+#spring:
+#  profiles:
+#    active:
+#    - development
+#---
+
+spring:
+  profiles: production
+  data:
+    mongodb:
+      uri: mongodb://mongodb/chitralimbu
+
+---
+
+spring:
+  profiles: development
+  data:
+    mongodb:
+      authentication-database: admin
+      host: 192.168.0.151
+      port: 27017
+      database: ChitraLimbu
+      username: chitra
+      password: Cptgbdllmrh150!
+      
+---
+
+logging:
+  level:
+    root: INFO
+    
+    
+    

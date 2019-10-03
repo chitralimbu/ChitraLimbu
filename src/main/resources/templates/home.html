@@ -10,13 +10,22 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" id="bootstrap-css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <title>Chitra Limbu</title>
 
 </head>
 
 <body>
 	<!--<h1>Chitra Limbu</h1>-->
+<script>
 
+function httpGetAsync()
+{
+    xmlHttp.open("GET", window.location.href+"/download/document/chitraLimbuCV.pdf", true); // true for asynchronous 
+    xmlHttp.send(null);
+}  
+	
+    </script>
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -46,8 +55,9 @@
         <img alt="mainBackground" th:src="*{'data:image/png;base64,'+mainBackground}" style="width:100%; height:500px; object-fit: cover;">
         <div class="carousel-caption">
         	<p><img th:src="*{'data:image/png;base64,'+profile}" class="img-responsive" style="display:inline" alt="profile" width="400px" ></p>
-        	</br>
-          <p> <a href="https://github.com/chitralimbu" class="custom">Github</a> - <a href="https://www.linkedin.com/in/chitralimbu/" class="custom">LinkedIn</a> - <a href="#" class="custom">Contact</a> - <a href="#" class="custom">CV</a></p>
+          <p> <a href="https://github.com/chitralimbu" class="custom">Github</a> - 
+          <a href="https://www.linkedin.com/in/chitralimbu/" class="custom">LinkedIn</a> - 
+          <a href="#" class="custom">Contact</a> - <a onClick="userAction()" href="#" class="custom">CV</a></p>
         </div>
       </div>  
     </div>	

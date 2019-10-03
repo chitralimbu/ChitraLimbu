@@ -81,4 +81,10 @@ public class HomeController {
 		experienceRepo.save(toUpdate);
 		return "redirect:/profile/"+toUpdate.getOrganisation();
 	}
+	
+	@GetMapping("/profile/delete/{organisation}")
+	public String deleteByOrganisation(@PathVariable("organisation") String org) {
+		experienceRepo.removeByOrganisation(org);
+		return "redirect:/";
+	}
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Upload new Document</h1>
+
+<form action="#" method="POST" th:action="@{/document/upload}" enctype="multipart/form-data">
+    Title:<input type="text" name="title" />
+    Image:<input type="file" name="document" accept="application/pdf" />
+    <input type="submit" value="Upload" />
+</form>
+</body>
+</html>

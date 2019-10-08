@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{layouts/layout}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{css/stylesheet.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<title>Chitra Limbu</title>
+
+</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div th:insert="fragments/header :: header">The header menu will go here</div>
+				<div layout:fragment="content">
+					Replace this with your own fragment for content
+				</div>
+			</div>
+		</nav>
+		<footer th:insert="fragments/footer :: footer" class="page-footer font-large" id="foot">
+				This will be replaced by the footer fragment. 
+		</footer>
+		
+	</body>
+</html>

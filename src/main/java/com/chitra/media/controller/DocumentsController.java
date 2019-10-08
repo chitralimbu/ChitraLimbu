@@ -16,16 +16,17 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/document")
+@RequestMapping("/media/document")
 public class DocumentsController {
 	
 	@Autowired
 	private DocumentService docService;
 	
 	@GetMapping
-	public String uploadPhoto() {
+	public String uploadDocument() {
 		return "uploadDocument";
 	}
+	
 	
 	@PostMapping("/upload")
 	public String addPhoto(@RequestParam("title") String title, @RequestParam("document") MultipartFile document) throws IOException {

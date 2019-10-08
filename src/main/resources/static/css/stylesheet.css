@@ -177,7 +177,7 @@ p {
 	font-size: 12px;
 }
 
-.custom {
+.custom, .downloadCV {
 	font-size: 20px;
 }
 
@@ -204,5 +204,20 @@ p {
 	letter-spacing: 0px;
 }
 
+.downloadCV{
+	color:white;
+	background-color:transparent;
+	text-decorationo:none;
+	border:none;
+	display:inline;
+}
+
+.downloadCV:hover{
+	color: #1abc9c;
+}
+
+#foot{
+	margin-bottom:20px;
+}
 
 

@@ -17,15 +17,6 @@
 
 <body>
 	<!--<h1>Chitra Limbu</h1>-->
-<script>
-
-function httpGetAsync()
-{
-    xmlHttp.open("GET", window.location.href+"/download/document/chitraLimbuCV.pdf", true); // true for asynchronous 
-    xmlHttp.send(null);
-}  
-	
-    </script>
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -57,7 +48,10 @@ function httpGetAsync()
         	<p><img th:src="*{'data:image/png;base64,'+profile}" class="img-responsive" style="display:inline" alt="profile" width="400px" ></p>
           <p> <a href="https://github.com/chitralimbu" class="custom">Github</a> - 
           <a href="https://www.linkedin.com/in/chitralimbu/" class="custom">LinkedIn</a> - 
-          <a href="#" class="custom">Contact</a> - <a onClick="userAction()" href="#" class="custom">CV</a></p>
+          <a href="#" class="custom">Contact</a> - <a th:href="@{/download/document/chitraLimbuCV.pdf}" class="custom">Download CV</a>
+          <!-- <form th:action="@{/download/document/chitraLimbuCV.pdf}" method="GET">
+          	<input class="downloadCV" type="submit" value="Download CV" /> 
+          </form> -->
         </div>
       </div>  
     </div>	
@@ -96,6 +90,16 @@ function httpGetAsync()
 	<!-- End timeline -->
 	</nav>
 	
-	
+	<!-- Footer -->
+	<footer class="page-footer font-large" id="foot">
+
+  	<!-- Copyright -->
+  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+    	<a th:href="@{/}">chitralimbu.com</a>
+  	</div>	
+  	<!-- Copyright -->
+
+	</footer>
+<!-- Footer -->
 </body>
 </html>

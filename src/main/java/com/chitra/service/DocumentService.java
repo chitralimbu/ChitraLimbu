@@ -28,4 +28,8 @@ public class DocumentService {
 		return docRepo.findByTitle(title);
 	}
 	
+	public Documents getDocById(String id) {
+		return docRepo.findById(id).get();
+	}
+	
 }

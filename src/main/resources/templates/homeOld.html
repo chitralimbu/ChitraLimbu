@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" th:href="@{/css/default.css}"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{css/stylesheet.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" id="bootstrap-css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<title>Chitra Limbu</title>
+
+</head>
+
+<body>
+	<!--<h1>Chitra Limbu</h1>-->
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a id="nav-title" class="navbar-brand" href="#">Chitra Limbu</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li id="nav-custom"><a th:href="@{/}">Profile</a></li>
+					<li id="nav-custom"><a href="#">Java</a></li>
+       				<li id="nav-custom"><a href="#">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="myCarousel" class="carousel slide" data-ride="carousel" >
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img alt="mainBackground" th:src="*{'data:image/png;base64,'+mainBackground}" style="width:100%; height:500px; object-fit: cover;">
+        <div class="carousel-caption">
+        	<p><img th:src="*{'data:image/png;base64,'+profile}" class="img-responsive" style="display:inline" alt="profile" width="400px" ></p>
+          <p> <a href="https://github.com/chitralimbu" class="custom">Github</a> - 
+          <a href="https://www.linkedin.com/in/chitralimbu/" class="custom">LinkedIn</a> - 
+          <a href="#" class="custom">Contact</a> - <a th:href="@{/download/document/chitraLimbuCV.pdf}" class="custom">Download CV</a>
+          <!-- <form th:action="@{/download/document/chitraLimbuCV.pdf}" method="GET">
+          	<input class="downloadCV" type="submit" value="Download CV" /> 
+          </form> -->
+        </div>
+      </div>  
+    </div>	
+
+    <!-- Left and right controls
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+     -->
+  </div>
+	<!-- Start timeline -->
+	<div id ="timeline">
+		<ul class="timeline" th:each="exp, iterStat: ${allExperience}">
+        <li th:class="${iterStat.odd} ? 'timeline-inverted'">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title" th:text="${exp.title}">TITLE</h4>
+              <p th:text="${exp.startDate} + ' - ' + ${exp.endDate}"><small class="text-muted"><i class="glyphicon glyphicon-time"></i>DATE</small></p>
+            </div>
+            <div class="timeline-body">
+              <p class="description" th:text="${exp.description}">DESCTIPTION</p>
+              <ul th:each="task: ${exp.tasks}">
+              	<li th:text="${task}"><i class="glyphicon glyphicon-triangle-right"></i>TASKS</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+    </ul>
+	</div>
+	<!-- End timeline -->
+	</nav>
+	
+	<!-- Footer -->
+	<footer class="page-footer font-large" id="foot">
+
+  	<!-- Copyright -->
+  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+    	<a th:href="@{/}">chitralimbu.com</a>
+  	</div>	
+  	<!-- Copyright -->
+
+	</footer>
+<!-- Footer -->
+</body>
+</html>

@@ -203,15 +203,6 @@ p {
 #timeline, #nav-custom, #nav-title, .custom {
 	letter-spacing: 0px;
 }
-
-.downloadCV{
-	color:white;
-	background-color:transparent;
-	text-decorationo:none;
-	border:none;
-	display:inline;
-}
-
 .downloadCV:hover{
 	color: #1abc9c;
 }
@@ -219,5 +210,4 @@ p {
 #foot{
 	margin-bottom:20px;
 }
-
 

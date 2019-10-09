@@ -27,7 +27,18 @@ spring:
 
 logging:
   level:
-    root: INFO
+    root: DEBUG
     
-    
-    
+---
+
+management:
+  endpoints:
+    web:      base-path: /management
+      exposure:        include: '*'
+#        exclude: threaddump,heapdump
+  endpoint:    health:      show-details: always
+
+info:
+  contact:
+    email: chitralimbu@gmail.com
+    phone: +447377547833

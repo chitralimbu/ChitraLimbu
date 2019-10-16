@@ -1,8 +1,8 @@
-spring:
-  profiles:
-    active:
-    - development
----
+#spring:
+  #profiles:
+    #active:
+    #- development
+#---
 
 spring:
   profiles: production
@@ -17,7 +17,7 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      host: 192.168.0.151
+      host: localhost
       port: 27017
       database: ChitraLimbu
       username: chitra
@@ -27,7 +27,7 @@ spring:
 
 logging:
   level:
-    root: DEBUG
+    root: INFO
     
 ---
 

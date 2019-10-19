@@ -1,46 +1,46 @@
 package com.chitra.domain;
-import java.util.List;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Data
+@ToString
+@EqualsAndHashCode
+@RequiredArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
-@EqualsAndHashCode
-@ToString
-@Document(collection="gitobject")
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class GitObject {
-	
+@Document(collection="gitrepositorycontents")
+public class GitRepositoryContents {
 	@Id
-	@NotNull
+	@NonNull
 	private String sha;
-	@NotNull
+	@NonNull
 	private String name;
-	@NotNull
+	@NonNull
 	private String path;
-	@NotNull
+	@NonNull
+	private String url;
+	@NonNull
 	private String html_url;
-	@NotNull
+	@NonNull
 	private String git_url;
-	@NotNull
-	private String download_url;
-	@NotNull
+	@NonNull
 	private String type;
+	@NonNull
+	private String download_url;
+	
+	private boolean ignore = false;
 	@DBRef
-	private List<GitDirTree> gitDirTree;
+	List<GitRepositoryRecursive> recursive;
 }

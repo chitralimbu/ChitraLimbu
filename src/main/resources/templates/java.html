@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Java</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<div class="mainbody-java">
+			<h1>Java projects</h1>
+			<div class ="java-contents" th:each="repo: ${gitRepo}">
+				<a th:href="@{/java/} + ${repo.name}" th:text="${repo.name}">Repo Name</a>
+				<p th:text="${repo.description}"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

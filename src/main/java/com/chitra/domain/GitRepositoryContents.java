@@ -38,9 +38,10 @@ public class GitRepositoryContents {
 	@NonNull
 	private String type;
 	@NonNull
-	private String download_url;
+	private String download_url = "none";
 	
 	private boolean ignore = false;
 	@DBRef
 	List<GitRepositoryRecursive> recursive;
+	
 }

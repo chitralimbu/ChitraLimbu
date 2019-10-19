@@ -1,8 +1,8 @@
-spring:
-  profiles:
-    active:
-    - development
----
+#spring:
+#  profiles:
+#    active:
+#    - development
+#---
 
 spring:
   profiles: production

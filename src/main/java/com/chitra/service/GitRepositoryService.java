@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GitRepositoryService {
 	
-	private List<String> ignoreList = Arrays.asList(".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
+	private List<String> ignoreList = Arrays.asList(".pyc",".mxl", ".DS_Store",".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
 
 	@Autowired
 	private GitRepositoryRepository gitRepo;
@@ -57,7 +57,11 @@ public class GitRepositoryService {
 	
 	private  GitRepositoryRecursive returnRecursiveRaw(GitRepositoryRecursive gitRepositoryRecursive, String fullName, String parentOfTree, RestTemplate restTemplate) {
 		gitRepositoryRecursive.setRaw(generateRawURL(fullName, String.format("%s/%s", parentOfTree, gitRepositoryRecursive.getPath())));
-		gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
+		//gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
+		if(gitRepositoryRecursive.getCode() == null || gitRepositoryRecursive.getCode().equals("no code")) {
+			log.info(String.format("Code for path %s is empty adding code if available", gitRepositoryRecursive.getPath()));
+			gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
+		}
 		return gitRepositoryRecursive;
 	}
 	

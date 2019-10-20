@@ -11,10 +11,12 @@
 		<div class="mainbody-topic">
 			<h1 th:text="${repository.name}">Heading</h1>
 			<div class="repo-contents" th:each="contents : ${repositoryContents}">
-				<p th:text="${contents.name}">sub</p>	
+				<p th:text="${contents.name}">sub</p>
+				<pre th:if="${contents.download_url != null}" th:text="${contents.download_url}">url</pre>	
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">
 						<p th:text="${repo.path}">Recursive path</p>
+						<pre th:text="${repo.code}">Code here</pre>
 					</div>
 				</div>
 			</div>

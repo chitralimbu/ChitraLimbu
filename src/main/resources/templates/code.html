@@ -9,7 +9,7 @@
 <body>
 	<div layout:fragment="content">
 		<div class="mainbody-java">
-			<h1>Java projects</h1>
+			<h1>Repositories</h1>
 			<div class ="java-contents" th:each="repo: ${gitRepo}">
 				<a th:href="@{/code/} + ${repo.name}" th:text="${repo.name}">Repo Name</a>
 				<p th:text="${repo.description}"></p>

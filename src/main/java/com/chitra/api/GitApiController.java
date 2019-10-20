@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,5 +37,11 @@ public class GitApiController {
 	@ResponseStatus(HttpStatus.OK)
 	public List<GitRepository> allRepository(){
 		return gitRepo.findAll();
+	}
+	
+	@GetMapping("/refresh/{repository}")
+	@ResponseStatus(HttpStatus.OK)
+	public GitRepository updateRepository(@PathVariable("repository") String repository, RestTemplate restTemplate, Gson gson) {
+		return gitRepoService.updateRepository(repository, restTemplate, gson);
 	}
 }

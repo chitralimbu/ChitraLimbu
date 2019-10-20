@@ -4,21 +4,71 @@
 	layout:decorate="~{layouts/layout}">
 <head>
 <title th:text="${repository.name}">Title</title>
+<style>
+.code-right, .code-left {
+	float: left;
+	margin-top: 80px;
+}
+
+.code-left{
+	width:20%;
+	position:fixed;
+	height:100%;
+	overflow-y: scroll;
+}
+
+.code-right{
+	padding:10px;
+	width:80%;
+	margin-left: 20%;
+}
+
+.vertical-menu {
+  width: 100%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50; /* Add a green color to the "active/current" link */
+  color: white;
+}
+
+</style>
 </head>
 <!-- repository -->
 <body>
 	<div layout:fragment="content">
 		<div class="mainbody-topic">
-			<h1 th:text="${repository.name}">Heading</h1>
-			<div class="repo-contents" th:each="contents : ${repositoryContents}">
-				<p th:text="${contents.name}">sub</p>
+			<div class="code-left">
+				<div class="vertical-menu">
+					<a th:each="heading : ${headings}" th:href="'#' + ${heading}" th:text="${heading}">Nav</a>
+				</div>
+
+			</div>
+			<div class="code-right">
+				<div class="repo-contents" th:each="contents : ${repositoryContents}">
+				
+				<p th:id="${contents.path}" th:text="${contents.name}">sub</p>
 				<pre th:if="${contents.download_url != null}" th:text="${contents.download_url}">url</pre>	
+				
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">
-						<p th:text="${repo.path}">Recursive path</p>
+						<p th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
 						<pre th:text="${repo.code}">Code here</pre>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

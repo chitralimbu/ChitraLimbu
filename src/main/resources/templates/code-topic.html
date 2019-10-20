@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title th:text="${repository.name}">Title</title>
+</head>
+<!-- repository -->
+<body>
+	<div layout:fragment="content">
+		<div class="mainbody-topic">
+			<h1 th:text="${repository.name}">Heading</h1>
+			<div class="repo-contents" th:each="contents : ${repositoryContents}">
+				<p th:text="${contents.name}">sub</p>	
+				<div class="tree" th:if="${contents.type} == 'dir'">
+					<div class="tree-content" th:each="repo : ${contents.recursive}">
+						<p th:text="${repo.path}">Recursive path</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

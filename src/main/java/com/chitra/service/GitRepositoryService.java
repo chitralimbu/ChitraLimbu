@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GitRepositoryService {
 	
-	private List<String> ignoreList = Arrays.asList("war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
+	private List<String> ignoreList = Arrays.asList(".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
 
 	@Autowired
 	private GitRepositoryRepository gitRepo;
@@ -55,8 +55,9 @@ public class GitRepositoryService {
 		return jobj.get(element).toString();
 	}
 	
-	private  GitRepositoryRecursive returnRecursiveRaw(GitRepositoryRecursive gitRepositoryRecursive, String fullName, String parentOfTree) {
+	private  GitRepositoryRecursive returnRecursiveRaw(GitRepositoryRecursive gitRepositoryRecursive, String fullName, String parentOfTree, RestTemplate restTemplate) {
 		gitRepositoryRecursive.setRaw(generateRawURL(fullName, String.format("%s/%s", parentOfTree, gitRepositoryRecursive.getPath())));
+		gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
 		return gitRepositoryRecursive;
 	}
 	
@@ -69,8 +70,8 @@ public class GitRepositoryService {
 				.collect(Collectors.toList());
 	}
 	
-	private List<GitRepositoryRecursive> addRawToGitRepositoryRecursive(List<GitRepositoryRecursive> gitReposRecursive, String fullName, String parentOfTree){
-		gitReposRecursive.forEach(obj -> returnRecursiveRaw(obj, fullName, parentOfTree));
+	private List<GitRepositoryRecursive> addRawToGitRepositoryRecursive(List<GitRepositoryRecursive> gitReposRecursive, String fullName, String parentOfTree, RestTemplate restTemplate){
+		gitReposRecursive.forEach(obj -> returnRecursiveRaw(obj, fullName, parentOfTree, restTemplate));
 		log.info(String.format("Successfully generated raw from tree data %s", gitReposRecursive));
 		gitRecursiveRepo.saveAll(gitReposRecursive);
 		log.info("Successfully saved Tree to database");
@@ -82,7 +83,7 @@ public class GitRepositoryService {
 			if(gr.getType().equals("dir")) {
 				String fullName = repository.getFull_name();
 				String parentOfTree = gr.getPath();
-				List<GitRepositoryRecursive> jobjRecursive = addRawToGitRepositoryRecursive(generateRecursive(gr, restTemplate, gson), fullName, parentOfTree);
+				List<GitRepositoryRecursive> jobjRecursive = addRawToGitRepositoryRecursive(generateRecursive(gr, restTemplate, gson), fullName, parentOfTree, restTemplate);
 				gr.setRecursive(jobjRecursive);
 			}
 		}

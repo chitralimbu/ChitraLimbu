@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org" lang="en"
 	layout:decorate="~{layouts/layout}">
 <head>
-<title>Java</title>
+<title>Code</title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 		<div class="mainbody-java">
 			<h1>Java projects</h1>
 			<div class ="java-contents" th:each="repo: ${gitRepo}">
-				<a th:href="@{/java/} + ${repo.name}" th:text="${repo.name}">Repo Name</a>
+				<a th:href="@{/code/} + ${repo.name}" th:text="${repo.name}">Repo Name</a>
 				<p th:text="${repo.description}"></p>
 			</div>
 		</div>

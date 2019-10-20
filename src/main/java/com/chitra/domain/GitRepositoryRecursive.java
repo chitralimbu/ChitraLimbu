@@ -29,4 +29,5 @@ public class GitRepositoryRecursive {
 	@NonNull
 	private String url;
 	private String raw;
+	private String code = "no code";
 }

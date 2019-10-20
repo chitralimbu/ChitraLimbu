@@ -3,6 +3,7 @@ package com.chitra.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class CodeController {
 	public String topicCode(Model model, @PathVariable("name") String name) {
 		GitRepository repository = gitRepo.findByName(name);
 		List<GitRepositoryContents> repoContents = turncatePath(repository.getAllContents());
-		List<String> allHeadings = generateAllHeadings(repoContents);
+		List<String> allHeadings = generateAllHeadings(repoContents).stream().distinct().collect(Collectors.toList());
 		model.addAttribute("headings", allHeadings);
 		model.addAttribute("repository", repository);
 		model.addAttribute("repositoryContents", repoContents);

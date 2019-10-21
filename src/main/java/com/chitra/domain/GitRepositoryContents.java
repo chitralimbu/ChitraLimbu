@@ -41,7 +41,13 @@ public class GitRepositoryContents {
 	private String download_url = "none";
 	
 	private boolean ignore = false;
-	@DBRef
-	List<GitRepositoryRecursive> recursive;
 	
+	@DBRef
+	private List<GitRepositoryRecursive> recursive;
+	
+	private String raw;
+	
+	public boolean getIgnore() {
+		return ignore;
+	}
 }

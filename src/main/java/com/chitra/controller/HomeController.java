@@ -89,7 +89,9 @@ public class HomeController {
 	
 	@GetMapping("/timeline")
 	public String timeline(Model model) {
-		model.addAttribute("allExperience", experienceRepo.findAll());
+		List<Experience> allExperience = experienceRepo.findAll();
+		Collections.sort(allExperience, new ExperienceComparator());
+		model.addAttribute("allExperience", allExperience);
 		return "timeline";
 	}
 }

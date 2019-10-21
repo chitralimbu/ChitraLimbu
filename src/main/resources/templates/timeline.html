@@ -10,7 +10,7 @@
 <body>
 	<div layout:fragment="content">
 		<!-- Start timeline -->
-		<div id="timeline">
+		<div id="timeline" style="margin-top:85px;">
 			<ul class="timeline" th:each="exp, iterStat: ${allExperience}">
 				<li th:class="${iterStat.odd} ? 'timeline-inverted'">
 					<div class="timeline-badge">

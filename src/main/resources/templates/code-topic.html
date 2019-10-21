@@ -19,8 +19,8 @@
 			<div class="code-right" id="right-side">
 				<div class="repo-contents" th:each="contents : ${repositoryContents}">
 				
-				<p th:id="${contents.path}" th:text="${contents.name}">sub</p>
-				<pre th:if="${contents.download_url != null}" th:text="${contents.download_url}">url</pre>	
+				<p style="padding-top: 85px; margin-top: -85px;" th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
+				<pre th:if="${contents.download_url != null and contents.ignore != true}" th:text="${contents.raw}">raw</pre>	
 				
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">

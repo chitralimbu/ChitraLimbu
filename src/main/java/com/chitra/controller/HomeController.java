@@ -40,7 +40,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(Model model, HttpServletResponse response) {
-		String headerValue = CacheControl.maxAge(1, TimeUnit.DAYS).getHeaderValue();
+		String headerValue = CacheControl.maxAge(7, TimeUnit.DAYS).getHeaderValue();
 		List<Experience> allExperience = experienceRepo.findAll();
 		Collections.sort(allExperience, new ExperienceComparator());
 		log.debug(String.format("allExperiencesize %d", allExperience.size()));
@@ -76,8 +76,7 @@ public class HomeController {
 		toUpdate.setStartDate(exp.getStartDate());
 		toUpdate.setEndDate(exp.getEndDate());
 		toUpdate.setDescription(exp.getDescription());
-		toUpdate.setTasks(Arrays.asList(task.split("\n")));
-		//exp.setTasks(Arrays.asList(task.split("\n")));		
+		toUpdate.setTasks(Arrays.asList(task.split("\n")));	
 		experienceRepo.save(toUpdate);
 		return "redirect:/profile/"+toUpdate.getOrganisation();
 	}
@@ -86,5 +85,11 @@ public class HomeController {
 	public String deleteByOrganisation(@PathVariable("organisation") String org) {
 		experienceRepo.removeByOrganisation(org);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/timeline")
+	public String timeline(Model model) {
+		model.addAttribute("allExperience", experienceRepo.findAll());
+		return "timeline";
 	}
 }

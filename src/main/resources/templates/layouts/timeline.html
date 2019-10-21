@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" lang="en"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Timeline</title>
+
+</head>
+<!-- repository -->
+<body>
+	<div layout:fragment="content">
+		<!-- Start timeline -->
+		<div id="timeline">
+			<ul class="timeline" th:each="exp, iterStat: ${allExperience}">
+				<li th:class="${iterStat.odd} ? 'timeline-inverted'">
+					<div class="timeline-badge">
+						<i class="glyphicon glyphicon-check"></i>
+					</div>
+					<div class="timeline-panel">
+						<div class="timeline-heading">
+							<h4 class="timeline-title" th:text="${exp.title}">TITLE</h4>
+							<p th:text="${exp.startDate} + ' - ' + ${exp.endDate}">
+								<small class="text-muted"><i
+									class="glyphicon glyphicon-time"></i>DATE</small>
+							</p>
+						</div>
+						<div class="timeline-body">
+							<p class="description" th:text="${exp.description}">DESCTIPTION</p>
+							<ul th:each="task: ${exp.tasks}">
+								<li th:text="${task}"><i
+									class="glyphicon glyphicon-triangle-right"></i>TASKS</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- End timeline -->
+	</div>
+</body>
+</html>

@@ -17,7 +17,7 @@ import com.chitra.service.GitRepositoryService;
 import com.google.gson.Gson;
 
 @RestController
-@RequestMapping("/git")
+@RequestMapping("/api/git")
 public class GitApiController {
 	
 	@Autowired
@@ -37,6 +37,12 @@ public class GitApiController {
 	@ResponseStatus(HttpStatus.OK)
 	public List<GitRepository> allRepository(){
 		return gitRepo.findAll();
+	}
+	
+	@GetMapping("/{repository}")
+	@ResponseStatus(HttpStatus.OK)
+	public GitRepository getRepository(@PathVariable("repository") String repository) {
+		return gitRepo.findByName(repository);
 	}
 	
 	@GetMapping("/refresh/{repository}")

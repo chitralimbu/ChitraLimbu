@@ -22,7 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 public class GitRepositoryService {
 
 	private List<String> ignoreList = Arrays.asList("MANIFEST.MF",".pyc",".mxl", ".DS_Store",".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
-
+	private static final String username="chitralimbu";
+	
 	@Autowired
 	private GitRepositoryRepository gitRepo;
 
@@ -57,7 +58,6 @@ public class GitRepositoryService {
 
 	private  GitRepositoryRecursive returnRecursiveRaw(GitRepositoryRecursive gitRepositoryRecursive, String fullName, String parentOfTree, RestTemplate restTemplate) {
 		gitRepositoryRecursive.setRaw(generateRawURL(fullName, String.format("%s/%s", parentOfTree, gitRepositoryRecursive.getPath())));
-		//gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
 		if(gitRepositoryRecursive.getCode() == null || gitRepositoryRecursive.getCode().equals("no code")) {
 			log.info(String.format("Code for path %s is empty adding code if available", gitRepositoryRecursive.getPath()));
 			gitRepositoryRecursive.setCode(restTemplate.getForObject(gitRepositoryRecursive.getRaw(), String.class));
@@ -117,15 +117,18 @@ public class GitRepositoryService {
 
 
 	public GitRepository updateRepository(String repository, RestTemplate restTemplate, Gson gson) { 
-		GitRepository gitRepository = gitRepo.findByName(repository);  
+		log.info(String.format("Updating/adding repository %s/%s", username, repository));
+		String thisRepository = restTemplate.getForObject(getContentsURL(String.format("%s/%s", username, repository)), String.class);
+		GitRepository gitRepository =   gson.fromJson(thisRepository, new TypeToken<List<GitRepository>>() {}.getType());
 		return updateRepo(restTemplate, gson, gitRepository); 
 	}
 
 
 	public List<GitRepository> fullRefreshGitRepository(RestTemplate restTemplate, Gson gson){
-		log.info("Calling GitHub api");
+		log.info("Refreshing all repositories");
 		String gitRepoContents = restTemplate.getForObject("https://api.github.com/users/chitralimbu/repos", String.class);
-		return gson.fromJson(gitRepoContents, new TypeToken<List<GitRepository>>() {}.getType());
+		List<GitRepository> allRepositories = gson.fromJson(gitRepoContents, new TypeToken<List<GitRepository>>() {}.getType()); 
+		return generateFinalGitRepository(restTemplate, gson, allRepositories);
 	}
 
 }

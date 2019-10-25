@@ -146,7 +146,7 @@ html {
 	margin-top: 5px;
 }
 
-@media ( max-width : 767px) {
+@media ( max-width : 600px) {
 	ul.timeline:before {
 		left: 40px;
 	}
@@ -189,12 +189,14 @@ p {
 	font-size: 15px;
 }
 
-#nav-custom {
+#nav-custom a{
+	color:white;
 	font-size: 17px;
 }
 
 #nav-title {
-	font-size: 30px;
+	font-size: 35px;
+	color:white;
 }
 
 .timeline-title {
@@ -225,11 +227,11 @@ p {
 
 .code-right, .code-left {
 	float: left;
-	margin-top: 80px;
+	margin-top: 60px;
 }
 
 .code-left {
-	width: 20%;
+	width: 25%;
 	position: fixed;
 	height: 100%;
 	overflow-y: scroll;
@@ -237,11 +239,139 @@ p {
 }
 
 .code-right {
-	padding: 10px;
-	width: 80%;
-	margin-left: 20%;
+	width: 73%;
+	height:100%;
+	margin-left: 22%;
 }
 
+
+@media screen and (max-width: 600px) {
+	#left-side {
+		visibility: hidden;
+	}
+	#right-side {
+		margin-left: -6%;
+		margin-right: 0%;
+		width: 100%;
+	}
+}
+
+#nav-custom:hover a{
+	text-decoration:none;
+	background-color:black;
+	color:white;
+	font-size: 17px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+	
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.imgbox {
+	background-color: black;
+	width: 100%;
+	height: 100vh;
+}
+
+.head-text {
+	margin-top: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.fa {
+	font-size: 500%;
+}
+
+.social{
+	filter: invert(100%);
+	width:50%;
+	transition: transform .2s;
+}
+
+.social:hover {
+  -ms-transform: scale(2); /* IE 9 */
+  -webkit-transform: scale(2); /* Safari 3-8 */
+  transform: scale(2); 
+}
+
+.glyphicon.glyphicon-menu-hamburger{
+	color:white;
+}
+
+.glyphicon.glyphicon-menu-down {
+	position:absolute;
+    font-size: 50px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:white;
+	-webkit-animation-name: movedown;  /* Safari 4.0 - 8.0 */
+  	-webkit-animation-duration: 2s;  /* Safari 4.0 - 8.0 */  
+  	-webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+  	animation-name: movedown;
+  	animation-duration: 2s;  
+  	animation-fill-mode: both;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes movedown {
+  from {top: 0px; opacity:0;}
+  to {top: 230%; opacity:1;}
+}
+
+@keyframes movedown {
+  from {top: 0px; opacity:0;}
+  to {top: 230%; opacity:1;}
+}
+
+
+@media screen and (max-width: 600px) {
+	.imgbox {
+		width: 100%;
+		height: 100vh;
+	}
+	.center-fit {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+.glyphicon.glyphicon-menu-down {
+	position:absolute;
+    font-size: 20px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color:white;
+	-webkit-animation-name: movedown;  /* Safari 4.0 - 8.0 */
+  	-webkit-animation-duration: 2s;  /* Safari 4.0 - 8.0 */  
+  	-webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+  	animation-name: movedown;
+  	animation-duration: 2s;  
+  	animation-fill-mode: both;
+}
+	
+	/* Safari 4.0 - 8.0 */
+
+	
+}
+#icon{
+	background-color:white;
+}
 .vertical-menu {
 	width: 100%; /* Set a width if you like */
 }
@@ -263,15 +393,4 @@ p {
 	background-color: #4CAF50;
 	/* Add a green color to the "active/current" link */
 	color: white;
-}
-
-@media screen and (max-width: 600px) {
-	#left-side {
-		visibility: hidden;
-	}
-	#right-side {
-		margin-left: 0%;
-		margin-right: 0%;
-		width: 100%;
-	}
 }

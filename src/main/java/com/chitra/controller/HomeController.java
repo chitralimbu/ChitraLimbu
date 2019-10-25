@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.stereotype.Controller;
@@ -19,13 +17,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.chitra.domain.Experience;
 import com.chitra.media.domain.Photo;
 import com.chitra.repository.ExperienceRepository;
+import com.chitra.repository.GitRepositoryRepository;
 import com.chitra.service.ExperienceComparator;
 import com.chitra.service.PhotoService;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -38,19 +35,26 @@ public class HomeController {
 	@Autowired 
 	private PhotoService photoService;
 	
+	@Autowired
+	private GitRepositoryRepository gitRepo;
+	
+	private List<String> profile = Arrays.asList("stack", "git", "cv", "linkedin");
+	
+	
 	@GetMapping("/")
 	public String home(Model model, HttpServletResponse response) {
 		String headerValue = CacheControl.maxAge(7, TimeUnit.DAYS).getHeaderValue();
-		List<Experience> allExperience = experienceRepo.findAll();
-		Collections.sort(allExperience, new ExperienceComparator());
-		log.debug(String.format("allExperiencesize %d", allExperience.size()));
-		model.addAttribute("allExperience", allExperience);
-		Photo photo = photoService.getPhotoByTitle("mainBackground");
-		Photo profile = photoService.getPhotoByTitle("profile");
-		model.addAttribute("mainBackground", Base64.getEncoder().encodeToString(photo.getImage().getData()));
-		model.addAttribute("profile", Base64.getEncoder().encodeToString(profile.getImage().getData()));
+		model.addAttribute("gitRepo", gitRepo.findAll());
+		List<Photo> socialIcon = getAllProfile();
+		socialIcon.forEach(social -> model.addAttribute(social.getTitle(), Base64.getEncoder().encodeToString(social.getImage().getData())));
 		response.addHeader("Cache-Control", headerValue);
 		return "home";
+	}
+	
+	public List<Photo> getAllProfile(){
+		return profile.stream()
+						.map(photo -> photoService.getPhotoByTitle(photo))
+						.collect(Collectors.toList());
 	}
 	
 	@GetMapping("/profile/new")

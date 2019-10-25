@@ -1,7 +1,7 @@
 body {
 	font: 20px Montserrat, sans-serif;
 	line-height: 1.8;
-	color: #f5f6f7;
+	color: #f5f6f;
 }
 
 p {
@@ -48,7 +48,11 @@ p {
 }
 
 .navbar-nav  li a:hover {
-	color: #1abc9c !important;
+	color: white !important;
+	-ms-transform: scale(1.3); /* IE 9 */
+	-webkit-transform: scale(1.3); /* Safari 3-8 */
+	transform: scale(1.3);
+	transition: transform .5s;
 }
 
 .custom:link {
@@ -62,11 +66,105 @@ p {
 }
 
 .custom:hover {
-	color: #1abc9c !important;
+	color: white !important;
 	text-decoration: none;
 }
 
 .custom:active {
 	color: white;
 	text-decoration: none;
+}
+
+.repo {
+	overflow: hidden;
+}
+
+.comp{
+	overflow:hiden;
+}
+
+.home-code {
+	color:black;
+	padding: 0px 15px 0px 15px;
+}
+
+.home-code-head{
+	color:black;
+	font-size:1.5vw;
+	padding:5px 15px 5px 15px;
+}
+.repo-contents {
+	width: 100%;
+	margin-left: 6%;
+	margin-right: auto;
+}
+
+.home-repositories {
+	margin-top: 20px;
+	width: 100%;
+	margin-left: 6%;
+	margin-right: auto;
+}
+
+.home-repositories div {
+	float: left;
+	height: 10vw;
+	margin: 1%;
+	width: 20%;
+	border-radius:2px;
+	border-style: solid;
+	border-width:thin;
+	border-color: black;
+}
+
+.comp:hover {
+	transform: scale(1.03);
+	transition: transform .5s; /* Animation */
+}
+
+#foot{
+	margin-top:20px;
+	background-color:black;
+	height:80px;
+}
+
+.footer-text, .footer-text a{
+	text-align:center;
+	color:white;
+	padding-top:2%;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.home-repositories {
+		margin: -1%;
+		padding: 20px;
+	}
+	.home-repositories div {
+		float: left;
+		height: 30vw;
+		margin: 1%;
+		width: 100%;
+		border-style: solid;
+	}
+	.home-code {
+		text-align: center;
+	}
+	#foot{
+	background-color:black;
+	height:80px;
+}
+
+.footer-text, .footer-text a{
+	text-align:center;
+	color:white;
+	padding-top:6%;
+}
+
+.home-code-head{
+	text-align: center;
+	color:black;
+	font-size:5vw;
+}
+	
 }

@@ -4,7 +4,12 @@
 	layout:decorate="~{layouts/layout}">
 <head>
 <title th:text="${repository.name}">Title</title>
+<style>
 
+#foot{
+	visibility:hidden;
+}
+</style>
 </head>
 <!-- repository -->
 <body>
@@ -16,15 +21,15 @@
 				</div>
 
 			</div>
-			<div class="code-right" id="right-side">
+			<div class="code-right" id="right-side" style="scroll-behavior: smooth;">
 				<div class="repo-contents" th:each="contents : ${repositoryContents}">
 				
-				<p style="padding-top: 85px; margin-top: -85px;" th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
+				<p th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
 				<pre th:if="${contents.download_url != null and contents.ignore != true}" th:text="${contents.raw}">raw</pre>	
 				
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">
-						<p style="padding-top: 85px; margin-top: -85px;" class="code-title" th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
+						<p class="code-title" th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
 						<pre th:text="${repo.code}">Code here</pre>
 					</div>
 				</div>

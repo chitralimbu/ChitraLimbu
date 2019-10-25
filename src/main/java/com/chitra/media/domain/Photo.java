@@ -22,4 +22,5 @@ public class Photo {
 	private String id;
 	private String title;
 	private Binary image;
+	private String category;
 }

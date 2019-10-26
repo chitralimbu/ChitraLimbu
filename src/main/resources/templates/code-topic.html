@@ -29,7 +29,7 @@
 				
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">
-						<p class="code-title" th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
+						<p style="padding-top: 85px; margin-top: -85px;" class="code-title" th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
 						<pre th:text="${repo.code}">Code here</pre>
 					</div>
 				</div>

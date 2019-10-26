@@ -22,7 +22,7 @@ public class ChitraLimbuApplication {
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.basicAuthentication(username, password).build();
 	}
-	
+
 	@Bean
 	public JsonParser jsonParser() {
 		return new JsonParser();

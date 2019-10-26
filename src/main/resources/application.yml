@@ -17,7 +17,7 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      host: localhost
+      host: 192.168.0.157
       port: 27017
       database: ChitraLimbu
       username: chitra
@@ -33,10 +33,14 @@ logging:
 
 management:
   endpoints:
-    web:      base-path: /management
-      exposure:        include: '*'
+    web:
+      base-path: /management
+      exposure:
+        include: '*'
 #        exclude: threaddump,heapdump
-  endpoint:    health:      show-details: always
+  endpoint:
+    health:
+      show-details: always
 
 info:
   contact:

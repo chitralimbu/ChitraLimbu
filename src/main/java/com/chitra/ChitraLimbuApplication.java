@@ -16,7 +16,7 @@ import com.google.gson.JsonParser;
 public class ChitraLimbuApplication {
 
 	private static final String username = "chitralimbu";
-	private static final String password = "Kitkat150!";
+	private static final String password = "";
 	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {

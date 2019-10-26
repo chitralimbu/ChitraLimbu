@@ -21,13 +21,14 @@ spring:
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password: Cptgbdllmrh150!
+      password: 
       
 ---
 
 logging:
-  level:
-    root: INFO
+    file: chitralimbu.log
+    level:
+      root: INFO
     
 ---
 

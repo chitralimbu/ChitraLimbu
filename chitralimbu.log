@@ -1,0 +1,176 @@
+2019-10-26 22:53:08.838  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Starting ChitraLimbuApplication on chitra-limbu with PID 12959 (/home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu/target/classes started by niku in /home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu)
+2019-10-26 22:53:08.839  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : The following profiles are active: development
+2019-10-26 22:53:10.202  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-26 22:53:10.266  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63ms. Found 10 repository interfaces.
+2019-10-26 22:53:10.529  INFO 12959 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f3e3b5d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-26 22:53:10.533  INFO 12959 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-10-26 22:53:10.635  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-26 22:53:10.638  INFO 12959 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-26 22:53:10.639  INFO 12959 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-10-26 22:53:10.662  INFO 12959 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-26 22:53:10.663  INFO 12959 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1819 ms
+2019-10-26 22:53:10.815  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.157:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-26 22:53:10.816  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.157:27017 to client view of cluster
+2019-10-26 22:53:10.853  INFO 12959 --- [cluster-ClusterId{value='5db4c046309ede329f33dd6e', description='null'}-192.168.0.157:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:53}] to 192.168.0.157:27017
+2019-10-26 22:53:10.867  INFO 12959 --- [cluster-ClusterId{value='5db4c046309ede329f33dd6e', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.157:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4898845}
+2019-10-26 22:53:10.868  INFO 12959 --- [cluster-ClusterId{value='5db4c046309ede329f33dd6e', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-10-26 22:53:11.091  INFO 12959 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:54}] to 192.168.0.157:27017
+2019-10-26 22:53:11.284  INFO 12959 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-26 22:53:11.783  INFO 12959 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@696bfbfc, org.springframework.security.web.context.SecurityContextPersistenceFilter@b05a5fe0, org.springframework.security.web.header.HeaderWriterFilter@35c18967, org.springframework.security.web.authentication.logout.LogoutFilter@b92c8c89, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3d017a29, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@371267e9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@def4c5ba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9c166c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bd7b7290, org.springframework.security.web.session.SessionManagementFilter@a36968a7, org.springframework.security.web.access.ExceptionTranslationFilter@c654cb28, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22a658e3]
+2019-10-26 22:53:11.992  INFO 12959 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-26 22:53:12.258  INFO 12959 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/management'
+2019-10-26 22:53:12.393  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-26 22:53:12.398  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Started ChitraLimbuApplication in 3.675 seconds (JVM running for 486.479)
+2019-10-26 22:53:12.712  INFO 12959 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   LogFileWebEndpointAutoConfiguration#logFileWebEndpoint matched:
+      - Log File found logging.file chitralimbu.log (LogFileWebEndpointAutoConfiguration.LogFileCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.logging.LogFileWebEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2019-10-26 22:53:56.921  INFO 12959 --- [Thread-22] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-26 22:53:56.939  INFO 12959 --- [Thread-22] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:54}] to 192.168.0.157:27017 because the pool has been closed.
+2019-10-26 22:55:23.760  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Starting ChitraLimbuApplication on chitra-limbu with PID 12959 (/home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu/target/classes started by niku in /home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu)
+2019-10-26 22:55:23.760  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : The following profiles are active: development
+2019-10-26 22:55:24.255  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-26 22:55:24.285  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29ms. Found 10 repository interfaces.
+2019-10-26 22:55:24.369  INFO 12959 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f3e3b5d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-26 22:55:24.376  INFO 12959 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-10-26 22:55:24.512  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-26 22:55:24.516  INFO 12959 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-26 22:55:24.517  INFO 12959 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-10-26 22:55:24.546  INFO 12959 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-26 22:55:24.546  INFO 12959 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 784 ms
+2019-10-26 22:55:24.699  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.157:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-26 22:55:24.699  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.157:27017 to client view of cluster
+2019-10-26 22:55:24.770  INFO 12959 --- [cluster-ClusterId{value='5db4c0cc309ede329f33dd70', description='null'}-192.168.0.157:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:57}] to 192.168.0.157:27017
+2019-10-26 22:55:24.774  INFO 12959 --- [cluster-ClusterId{value='5db4c0cc309ede329f33dd70', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.157:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2002095}
+2019-10-26 22:55:24.775  INFO 12959 --- [cluster-ClusterId{value='5db4c0cc309ede329f33dd70', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-10-26 22:55:24.919  INFO 12959 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:58}] to 192.168.0.157:27017
+2019-10-26 22:55:25.075  INFO 12959 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-26 22:55:25.523  INFO 12959 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ae6dda9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@5226ac1a, org.springframework.security.web.header.HeaderWriterFilter@35c87ed8, org.springframework.security.web.authentication.logout.LogoutFilter@74d42ed, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b0a7d0d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@27f41c9c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@95beacd3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a8b5cf21, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e40a4f76, org.springframework.security.web.session.SessionManagementFilter@1a94a7fc, org.springframework.security.web.access.ExceptionTranslationFilter@4f2e336f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@276f42f8]
+2019-10-26 22:55:25.701  INFO 12959 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-26 22:55:26.081  INFO 12959 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/management'
+2019-10-26 22:55:26.172  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-26 22:55:26.174  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Started ChitraLimbuApplication in 2.476 seconds (JVM running for 620.255)
+2019-10-26 22:55:26.436  INFO 12959 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   LogFileWebEndpointAutoConfiguration#logFileWebEndpoint matched:
+      - Log File found logging.file chitralimbu.log (LogFileWebEndpointAutoConfiguration.LogFileCondition)
+      - @ConditionalOnMissingBean (types: org.springframework.boot.actuate.logging.LogFileWebEndpoint; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2019-10-26 22:57:50.068  INFO 12959 --- [Thread-38] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-26 22:57:50.090  INFO 12959 --- [Thread-38] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:8, serverValue:58}] to 192.168.0.157:27017 because the pool has been closed.
+2019-10-26 22:57:50.241  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Starting ChitraLimbuApplication on chitra-limbu with PID 12959 (/home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu/target/classes started by niku in /home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu)
+2019-10-26 22:57:50.242  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : The following profiles are active: development
+2019-10-26 22:57:50.861  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-26 22:57:50.928  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66ms. Found 10 repository interfaces.
+2019-10-26 22:57:51.040  INFO 12959 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f3e3b5d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-26 22:57:51.044  INFO 12959 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-10-26 22:57:51.168  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-26 22:57:51.175  INFO 12959 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-26 22:57:51.176  INFO 12959 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-10-26 22:57:51.191  INFO 12959 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-26 22:57:51.192  INFO 12959 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 948 ms
+2019-10-26 22:57:51.350  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.157:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-26 22:57:51.354  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.157:27017 to client view of cluster
+2019-10-26 22:57:51.365  INFO 12959 --- [cluster-ClusterId{value='5db4c15f309ede329f33dd71', description='null'}-192.168.0.157:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:9, serverValue:59}] to 192.168.0.157:27017
+2019-10-26 22:57:51.372  INFO 12959 --- [cluster-ClusterId{value='5db4c15f309ede329f33dd71', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.157:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4837443}
+2019-10-26 22:57:51.373  INFO 12959 --- [cluster-ClusterId{value='5db4c15f309ede329f33dd71', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-10-26 22:57:51.523  INFO 12959 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:10, serverValue:60}] to 192.168.0.157:27017
+2019-10-26 22:57:51.664  INFO 12959 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-26 22:57:51.911  INFO 12959 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c418959c, org.springframework.security.web.context.SecurityContextPersistenceFilter@e207cdaf, org.springframework.security.web.header.HeaderWriterFilter@f2dd1ee, org.springframework.security.web.authentication.logout.LogoutFilter@6a310ba9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2c8c132, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@e180f932, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f57169e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@80b91bb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2527f2e0, org.springframework.security.web.session.SessionManagementFilter@1263c72e, org.springframework.security.web.access.ExceptionTranslationFilter@b901518f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9a5b089e]
+2019-10-26 22:57:52.049  INFO 12959 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-26 22:57:52.264  INFO 12959 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/management'
+2019-10-26 22:57:52.362  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-26 22:57:52.364  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Started ChitraLimbuApplication in 2.181 seconds (JVM running for 766.445)
+2019-10-26 22:57:52.638  INFO 12959 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-26 23:01:41.568  INFO 12959 --- [Thread-46] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-26 23:01:41.578  INFO 12959 --- [Thread-46] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:10, serverValue:60}] to 192.168.0.157:27017 because the pool has been closed.
+2019-10-26 23:01:41.885  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Starting ChitraLimbuApplication on chitra-limbu with PID 12959 (/home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu/target/classes started by niku in /home/niku/Documents/workspace-spring-tool-suite-4-4.3.2.RELEASE/ChitraLimbu)
+2019-10-26 23:01:41.885  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : The following profiles are active: development
+2019-10-26 23:01:42.294  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-26 23:01:42.335  INFO 12959 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41ms. Found 10 repository interfaces.
+2019-10-26 23:01:42.420  INFO 12959 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f3e3b5d5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-26 23:01:42.425  INFO 12959 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-10-26 23:01:42.532  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-10-26 23:01:42.534  INFO 12959 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-10-26 23:01:42.535  INFO 12959 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-10-26 23:01:42.549  INFO 12959 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-10-26 23:01:42.550  INFO 12959 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 662 ms
+2019-10-26 23:01:42.668  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[192.168.0.157:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-26 23:01:42.668  INFO 12959 --- [restartedMain] org.mongodb.driver.cluster               : Adding discovered server 192.168.0.157:27017 to client view of cluster
+2019-10-26 23:01:42.698  INFO 12959 --- [cluster-ClusterId{value='5db4c246309ede329f33dd72', description='null'}-192.168.0.157:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:11, serverValue:61}] to 192.168.0.157:27017
+2019-10-26 23:01:42.699  INFO 12959 --- [cluster-ClusterId{value='5db4c246309ede329f33dd72', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=192.168.0.157:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 6, 3]}, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=840056}
+2019-10-26 23:01:42.700  INFO 12959 --- [cluster-ClusterId{value='5db4c246309ede329f33dd72', description='null'}-192.168.0.157:27017] org.mongodb.driver.cluster               : Discovered cluster type of STANDALONE
+2019-10-26 23:01:42.827  INFO 12959 --- [restartedMain] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:12, serverValue:62}] to 192.168.0.157:27017
+2019-10-26 23:01:42.970  INFO 12959 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-10-26 23:01:43.216  INFO 12959 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@728bbe8f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a1744f2, org.springframework.security.web.header.HeaderWriterFilter@ff337866, org.springframework.security.web.authentication.logout.LogoutFilter@877f00e6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@e850813d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@9338c9b9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1deecd3a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@acea93d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@379c2148, org.springframework.security.web.session.SessionManagementFilter@2793c69e, org.springframework.security.web.access.ExceptionTranslationFilter@28c4bffc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@dd5e6bf7]
+2019-10-26 23:01:43.376  INFO 12959 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-26 23:01:43.616  INFO 12959 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/management'
+2019-10-26 23:01:43.838  INFO 12959 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-10-26 23:01:43.842  INFO 12959 --- [restartedMain] com.chitra.ChitraLimbuApplication        : Started ChitraLimbuApplication in 2.004 seconds (JVM running for 997.923)
+2019-10-26 23:01:44.124  INFO 12959 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-10-26 23:03:10.223  INFO 12959 --- [http-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-10-26 23:03:10.224  INFO 12959 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-10-26 23:03:10.231  INFO 12959 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-10-26 23:04:26.141  INFO 12959 --- [RMI TCP Connection(47)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-10-26 23:04:26.145  INFO 12959 --- [RMI TCP Connection(47)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-26 23:04:26.156  INFO 12959 --- [RMI TCP Connection(47)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:12, serverValue:62}] to 192.168.0.157:27017 because the pool has been closed.

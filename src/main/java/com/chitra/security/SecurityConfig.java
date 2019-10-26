@@ -22,30 +22,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
-				.httpBasic()
-				.and()
-				.authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PATCH, "/api/**").hasRole("ADMIN")
-				.and()
-				.formLogin()
-				.disable()
-				.csrf()
-				.disable()
-				.authorizeRequests()
-				.antMatchers("/blog/**", "/media/**", "/profile/**")
-				.hasRole("ADMIN")
-				.antMatchers("/").access("permitAll")
-				.and()
-				.formLogin()
-				.loginPage("/login")
-				.defaultSuccessUrl("/")
-				.and()
-				.logout()
-				.logoutSuccessUrl("/login");
+		.httpBasic()
+		.and()
+		.authorizeRequests()
+		.antMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
+		.antMatchers(HttpMethod.PATCH, "/api/**").hasRole("ADMIN")
+		.and()
+		.formLogin()
+		.disable()
+		.csrf()
+		.disable()
+		.authorizeRequests()
+		.antMatchers("/blog/**", "/media/**", "/profile/**")
+		.hasRole("ADMIN")
+		.antMatchers("/").access("permitAll")
+		.and()
+		.formLogin()
+		.loginPage("/login")
+		.defaultSuccessUrl("/")
+		.and()
+		.logout()
+		.logoutSuccessUrl("/login");
 
 	}
 
@@ -58,8 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-				.userDetailsService(userDetailsService)
-				.passwordEncoder(encoder());
+		.userDetailsService(userDetailsService)
+		.passwordEncoder(encoder());
 
 	}
 

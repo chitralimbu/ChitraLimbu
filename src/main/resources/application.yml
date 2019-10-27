@@ -17,11 +17,11 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      host: 192.168.0.157
+      host: localhost
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password: 
+      password: Cptgbdllmrh150!
       
 ---
 

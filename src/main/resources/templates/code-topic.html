@@ -24,7 +24,7 @@
 			<div class="code-right" id="right-side" style="scroll-behavior: smooth;">
 				<div class="repo-contents" th:each="contents : ${repositoryContents}">
 				
-				<p th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
+				<p style="padding-top: 85px; margin-top: -85px;" th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
 				<pre th:if="${contents.download_url != null and contents.ignore != true}" th:text="${contents.raw}">raw</pre>	
 				
 				<div class="tree" th:if="${contents.type} == 'dir'">

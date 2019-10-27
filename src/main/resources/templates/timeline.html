@@ -13,7 +13,7 @@
 		<div id="timeline" style="margin-top:85px;">
 			<ul class="timeline" th:each="exp, iterStat: ${allExperience}">
 				<li th:class="${iterStat.odd} ? 'timeline-inverted'">
-					<div class="timeline-badge">
+					<div class="timeline-badge" id="timeline-badge">
 						<i class="glyphicon glyphicon-check"></i>
 					</div>
 					<div class="timeline-panel">

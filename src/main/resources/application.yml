@@ -26,7 +26,6 @@ spring:
 ---
 
 logging:
-    file: chitralimbu.log
     level:
       root: INFO
     

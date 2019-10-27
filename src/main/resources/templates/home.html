@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="en"
-	layout:decorate="~{layouts/layout}">
+	  xmlns:th="http://www.thymeleaf.org" lang="en"
+	  layout:decorate="~{layouts/layout}">
 <head>
-<title>Chitra Limbu</title>
-<style>
+	<title>Chitra Limbu</title>
+	<style>
 
-</style>
+	</style>
 </head>
 <body>
-	<div layout:fragment="content">
-		<div class="imgbox">
-			<div class="head-text">
-				<div class="row">
-					<div class="column">
-						<a href="https://github.com/chitralimbu"><img alt="git" th:src="*{'data:image/png;base64,'+git}" class="social"></a>
-					</div>
-					<div class="column">	
-						<a th:href="@{/download/document/chitraLimbuCV.pdf}"><img alt="cv" th:src="*{'data:image/png;base64,'+cv}" class="social"></a>
-					</div>
-					<div class="column">
-						<a href="https://www.linkedin.com/in/chitralimbu/"><img alt="linkedin" th:src="*{'data:image/png;base64,'+linkedin}" class="social"></a>
-					</div>
-					<div class="column">
-						<a href="https://stackoverflow.com/users/12179262/dharanboi-limbu"><img alt="stack" th:src="*{'data:image/png;base64,'+stack}" class="social"></a>
-					</div>
+<div layout:fragment="content">
+	<div class="imgbox">
+		<div class="head-text">
+			<div class="row">
+				<div class="column">
+					<a href="https://github.com/chitralimbu"><img alt="git" th:src="*{'data:image/png;base64,'+git}" class="social"></a>
 				</div>
-				<!-- row ends -->
-				<div id="down"><a href="#repo"><span id="down-icon" class="glyphicon glyphicon-menu-down"></span></a></div> 
+				<div class="column">
+					<a th:href="@{/download/document/chitraLimbuCV.pdf}"><img alt="cv" th:src="*{'data:image/png;base64,'+cv}" class="social"></a>
+				</div>
+				<div class="column">
+					<a href="https://www.linkedin.com/in/chitralimbu/"><img alt="linkedin" th:src="*{'data:image/png;base64,'+linkedin}" class="social"></a>
+				</div>
+				<div class="column">
+					<a href="https://stackoverflow.com/users/12179262/dharanboi-limbu"><img alt="stack" th:src="*{'data:image/png;base64,'+stack}" class="social"></a>
+				</div>
 			</div>
-		</div>
-		<div class="repo" id="repo" style="padding-top: 85px; margin-top: -85px;">
-			 <section class="home-repositories">
-				<a th:each="repo: ${gitRepo}" th:href="@{/code/} + ${repo.name}">
-					<div class="comp">
-						<h1 class="home-code-head" th:text="${repo.name}">Repo name</h1>
-						<p class="home-code" th:text="${repo.description}">Description</p>
-					</div>
-				</a>
-  			</section>
+			<!-- row ends -->
+			<div id="down"><a href="#repo"><span id="down-icon" class="glyphicon glyphicon-menu-down"></span></a></div>
 		</div>
 	</div>
+	<div class="repo" id="repo" style="padding-top: 85px; margin-top: -85px;">
+		<section class="home-repositories">
+			<a th:each="repo: ${gitRepo}" th:href="@{/code/} + ${repo.name}">
+				<div class="comp">
+					<h1 class="home-code-head" th:text="${repo.name}">Repo name</h1>
+					<p class="home-code" th:text="${repo.description}">Description</p>
+				</div>
+			</a>
+		</section>
+	</div>
+</div>
 </body>
 </html>

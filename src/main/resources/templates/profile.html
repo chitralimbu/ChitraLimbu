@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="en"
-	layout:decorate="~{layouts/layout}">
+	  xmlns:th="http://www.thymeleaf.org" lang="en"
+	  layout:decorate="~{layouts/layout}">
 <head>
-<meta charset="utf-8">
-<title>Profile</title>
+	<meta charset="utf-8">
+	<title>Profile</title>
 </head>
 
 <body>
-	<div class="container">
-		<div layout:fragment="content">
-			<div id="my-profile" class="other-mainbody">
-				<form action="#" th:action="@{/profile/update}"
-					th:object="${experience}" method="post">
-					Title <input type="text" class="form-control" placeholder="Title"
-						required="required" th:field="*{title}"
-						value="${experience.title}" /><br /> Start Date (Month Year) <input
-						type="text" class="form-control"
-						placeholder="Start Date (MMMM YYYY)" th:field="*{startDate}"
-						value="${experience.startDate}" /><br /> End Date (Month Year or
-					Present) <input type="text" class="form-control"
-						placeholder="(MMMM YYYY or PRESENT)" th:field="*{endDate}"
-						value="${experience.endDate}" /><br /> Organisation <input
-						type="text" class="form-control" placeholder="Organisation"
-						required="required" th:field="*{organisation}"
-						value="${experience.organisation}" /><br /> Description <input
-						type="text" class="form-control" placeholder="Description"
-						th:field="*{description}" value="${experience.description}" /><br />
-					Tasks
-					<textarea name="task" class="form-control" placeholder="Tasks"
-						th:text="${task}" rows="10">TASK HERE</textarea>
-					<input type="submit" class="btn btn-primary" value="Submit" />
-				</form>
+<div class="container">
+	<div layout:fragment="content">
+		<div id="my-profile" class="other-mainbody">
+			<div id="mainbody-container">
+				<div class="profile-form">
+					<form action="#" th:action="@{/profile/update}"
+						  th:object="${experience}" method="post">
+						Title <input type="text" class="form-control" placeholder="Title"
+									 required="required" th:field="*{title}"
+									 value="${experience.title}" /><br /> Start Date (Month Year) <input
+							type="text" class="form-control"
+							placeholder="Start Date (MMMM YYYY)" th:field="*{startDate}"
+							value="${experience.startDate}" /><br /> End Date (Month Year or
+						Present) <input type="text" class="form-control"
+										placeholder="(MMMM YYYY or PRESENT)" th:field="*{endDate}"
+										value="${experience.endDate}" /><br /> Organisation <input
+							type="text" class="form-control" placeholder="Organisation"
+							required="required" th:field="*{organisation}"
+							value="${experience.organisation}" /><br /> Description <input
+							type="text" class="form-control" placeholder="Description"
+							th:field="*{description}" value="${experience.description}" /><br />
+						Tasks
+						<textarea name="task" class="form-control" placeholder="Tasks"
+								  th:text="${task}" rows="10">TASK HERE</textarea>
+						<input type="submit" class="btn btn-primary" value="Submit" />
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 
 </html>

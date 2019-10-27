@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="en"
-	layout:decorate="~{layouts/layout}">
+	  xmlns:th="http://www.thymeleaf.org" lang="en"
+	  layout:decorate="~{layouts/layout}">
 <head>
-<title>Code</title>
+	<title>Code</title>
 </head>
 
 <body>
-	<div layout:fragment="content">
-		<div class="mainbody-java">
+<div layout:fragment="content">
+	<div class="mainbody-java" >
+		<div id="mainbody-container">
 			<h1>Repositories</h1>
 			<div class ="java-contents" th:each="repo: ${gitRepo}">
 				<a th:href="@{/code/} + ${repo.name}" th:text="${repo.name}">Repo Name</a>
@@ -16,5 +17,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

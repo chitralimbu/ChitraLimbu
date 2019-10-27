@@ -135,8 +135,29 @@ p {
 	padding-top:2%;
 }
 
+.other-mainbody, #other-mainbody, .mainbody-java{
+    margin-top:-100px;
+    padding-top:100px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 70vw;
+    min-height:100vh;
+}
+
+#mainbody-container{
+    padding-top:8vh;
+}
+
+.profile-form{
+    padding-top:5vh;
+}
 
 @media only screen and (max-width: 900px) {
+
+    #mainbody-container{
+        padding-top:10vh;
+    }
+
 	.home-repositories {
 		margin: -1%;
 		padding: 20px;
@@ -168,14 +189,4 @@ p {
 	color:black;
 	font-size:5vw;
 }
-	
-}
-
-.other-mainbody, #other-mainbody{
-    margin-top:85px;
-    margin-left:auto;
-    margin-right:auto;
-    width: 70vw;
-    min-height: 72.5vh;
-    height: 100vh;
 }

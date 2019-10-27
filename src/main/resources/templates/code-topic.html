@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" lang="en"
-	layout:decorate="~{layouts/layout}">
+	  xmlns:th="http://www.thymeleaf.org" lang="en"
+	  layout:decorate="~{layouts/layout}">
 <head>
-<title th:text="${repository.name}">Title</title>
-<style>
+	<title th:text="${repository.name}">Title</title>
+	<style>
 
 #foot{
 	visibility:hidden;
@@ -13,20 +13,20 @@
 </head>
 <!-- repository -->
 <body>
-	<div layout:fragment="content">
-		<div class="mainbody-topic">
-			<div class="code-left" id="left-side">
-				<div class="vertical-menu">
-					<a th:each="heading : ${headings}" th:href="'#' + ${heading}" th:text="${heading}">Nav</a>
-				</div>
-
+<div layout:fragment="content">
+	<div class="mainbody-topic">
+		<div class="code-left" id="left-side">
+			<div class="vertical-menu">
+				<a th:each="heading : ${headings}" th:href="'#' + ${heading}" th:text="${heading}">Nav</a>
 			</div>
-			<div class="code-right" id="right-side" style="scroll-behavior: smooth;">
-				<div class="repo-contents" th:each="contents : ${repositoryContents}">
-				
+
+		</div>
+		<div class="code-right" id="right-side" style="scroll-behavior: smooth;">
+			<div class="repo-contents" th:each="contents : ${repositoryContents}">
+
 				<p style="padding-top: 85px; margin-top: -85px;" th:if="${contents.ignore != true}" th:id="${contents.path}" th:text="${contents.name}">sub</p>
-				<pre th:if="${contents.download_url != null and contents.ignore != true}" th:text="${contents.raw}">raw</pre>	
-				
+				<pre th:if="${contents.download_url != null and contents.ignore != true}" th:text="${contents.raw}">raw</pre>
+
 				<div class="tree" th:if="${contents.type} == 'dir'">
 					<div class="tree-content" th:each="repo : ${contents.recursive}">
 						<p style="padding-top: 85px; margin-top: -85px;" class="code-title" th:id="${repo.path}" th:text="${repo.path}">Recursive path</p>
@@ -34,8 +34,8 @@
 					</div>
 				</div>
 			</div>
-			</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>

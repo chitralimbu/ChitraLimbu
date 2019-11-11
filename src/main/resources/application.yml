@@ -21,7 +21,7 @@ spring:
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password: Cptgbdllmrh150!
+      password:
       
 ---
 

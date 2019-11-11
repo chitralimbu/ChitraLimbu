@@ -1,9 +1,13 @@
 package com.chitra.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +18,7 @@ import com.chitra.domain.GitRepository;
 import com.chitra.domain.GitRepositoryContents;
 import com.chitra.repository.GitRepositoryRepository;
 import com.chitra.service.CodeService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/code")
@@ -23,13 +28,29 @@ public class CodeController {
 	
 	@Autowired
 	private GitRepositoryRepository gitRepo;
-	
+
 	@GetMapping
-	public String getCode(Model model) {
+	public String getCodeParam(@RequestParam("page") Optional<Integer> page, Model model) {
+		int number = page.isPresent() ? page.get() : 1;
+		PageRequest pageable = PageRequest.of(number -1, 10);
+		Page<GitRepository> pageRepository = gitRepo.findAll(pageable);
+		int totalPages = pageRepository.getTotalPages();
+		if(totalPages > 0){
+			List<Integer> pageNumbers = IntStream.rangeClosed(1,totalPages).boxed().collect(Collectors.toList());
+			model.addAttribute("pageNumbers", pageNumbers);
+		}
+		model.addAttribute("activeGitList", true);
+		model.addAttribute("gitList", pageRepository.getContent());
+		return "code-pageable";
+	}
+
+
+	/*@GetMapping
+	public String getAllCode(Model model) {
 		model.addAttribute("gitRepo", gitRepo.findAll());
 		return "code";
-	}
-	
+	}*/
+
 	@GetMapping("/{name}")
 	public String topicCode(Model model, @PathVariable("name") String name) {
 		GitRepository repository = gitRepo.findByName(name);

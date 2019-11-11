@@ -388,3 +388,16 @@ p {
 	/* Add a green color to the "active/current" link */
 	color: white;
 }
+
+.code-header{
+    font-size:20px;
+}
+
+.code-description{
+    font-size:13px;
+}
+
+.code-header:hover{
+    color: #008BFF;
+    text-decoration:none;
+}

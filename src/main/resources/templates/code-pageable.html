@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Code</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="mainbody-java" >
+        <div id="mainbody-container">
+            <h1>Repositories</h1>
+            <div class="java-contents" th:each="article : ${gitList}">
+                <a class="code-header" th:href="@{/code/} + ${article.name}" th:text="${article.name}">Repo Name</a>
+                <p class="code-description" th:text="${article.description}"></p>
+            </div>
+            <ul class="pagination pagination">
+            <li th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/code} + '?page=' + ${pageNumber}" th:text="${pageNumber}">1</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

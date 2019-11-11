@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GitRepositoryService {
 
-	private List<String> ignoreList = Arrays.asList("pom.properties", ".adoc","gradle","MANIFEST.MF",".pyc",".mxl", ".DS_Store",".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
+	private List<String> ignoreList = Arrays.asList("maven-wrapper.properties","MavenWrapperDownloader.java","pom.properties", ".adoc","gradle","MANIFEST.MF",".pyc",".mxl", ".DS_Store",".jpg", ".jpeg", ".png",".war", ".jar",".mvn/wrapper",".gitignore","mvnw","mvnw.cmd","docx",".classpath",".project",".settings","bin",".class",".mp3",".project");
 	private static final String username="chitralimbu";
 	private static final String GITHUB_REPOSITORY="https://api.github.com/users/chitralimbu/repos";
 	@Autowired

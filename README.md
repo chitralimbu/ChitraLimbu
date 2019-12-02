@@ -25,6 +25,7 @@ RestTemplate - Consuming Rest API
 Spring Data Mongodb
 Spring Security - Roles
 GridFS (Mongodb - Storing media)
+Actuator - Prometheus - Grafana (Monitoring)
 ```
 
 ### Upcoming

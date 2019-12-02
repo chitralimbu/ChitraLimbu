@@ -24,6 +24,8 @@ public class DownloadController {
 	public ResponseEntity<Resource> download(@PathVariable("title") String title){
 		HttpHeaders header = new HttpHeaders();
 		Documents doc = docRepo.findByTitle(title);
+		doc.setCount(doc.getCount()+1);
+		docRepo.save(doc);
 		header.add(HttpHeaders.CONTENT_DISPOSITION, String.format("attachment; filename=%s", doc.getTitle()));
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");

@@ -22,5 +22,5 @@ public class Documents {
 	private String id;
 	private String title;
 	private Binary doc;
-	
+	private long count = 0;
 }

@@ -1,9 +1,9 @@
 server:
-  port: 6543
-  ssl:
-    key-store: 
-    key-store-password:
-    key-password:
+  port: 8080
+#  ssl:
+#    key-store:
+#    key-store-password:
+#    key-password:
 ---
 spring:
   profiles:
@@ -28,7 +28,7 @@ spring:
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password: Cptgbdllmrh150!
+      password:
       
 ---
 

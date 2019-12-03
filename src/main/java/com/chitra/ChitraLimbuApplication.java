@@ -1,5 +1,7 @@
 package com.chitra;
 
+import com.chitra.prometheus.HomePageHits;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,8 +39,13 @@ public class ChitraLimbuApplication {
 	public Gson prettyPrint() {
 		return new GsonBuilder().setPrettyPrinting().create();
 	}
-	
-	@Bean 
+
+	/*@Bean
+	public HomePageHits homePageHits(MeterRegistry meterRegistry){
+		return new HomePageHits(meterRegistry);
+	}*/
+
+	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate, JsonParser jsonParser, Gson gson, Gson prettyPrint) throws Exception{
 		return args -> {
 			System.out.println(restTemplate.getForObject("https://api.github.com/rate_limit", String.class));

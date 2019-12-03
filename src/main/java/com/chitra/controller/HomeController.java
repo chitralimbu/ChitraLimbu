@@ -8,6 +8,8 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
+
+import com.chitra.prometheus.HomePageHits;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.stereotype.Controller;
@@ -37,7 +39,10 @@ public class HomeController {
 	
 	@Autowired
 	private GitRepositoryRepository gitRepo;
-	
+
+	@Autowired
+	private HomePageHits homePageHits;
+
 	private List<String> profile = Arrays.asList("stack", "git", "cv", "linkedin");
 	
 	
@@ -48,6 +53,7 @@ public class HomeController {
 		List<Photo> socialIcon = getAllProfile();
 		socialIcon.forEach(social -> model.addAttribute(social.getTitle(), Base64.getEncoder().encodeToString(social.getImage().getData())));
 		response.addHeader("Cache-Control", headerValue);
+		homePageHits.counterIncrement();
 		return "home";
 	}
 	

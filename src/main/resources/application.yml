@@ -1,3 +1,10 @@
+server:
+  port: 6543
+  ssl:
+    key-store: 
+    key-store-password:
+    key-password:
+---
 spring:
   profiles:
     active:
@@ -21,7 +28,7 @@ spring:
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password:
+      password: Cptgbdllmrh150!
       
 ---
 

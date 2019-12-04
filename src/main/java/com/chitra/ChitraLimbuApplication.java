@@ -2,6 +2,7 @@ package com.chitra;
 
 import com.chitra.prometheus.HomePageHits;
 import io.micrometer.core.instrument.MeterRegistry;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import com.google.gson.JsonParser;
 
 @SpringBootApplication
 @EnableCaching
+@Slf4j
 public class ChitraLimbuApplication {
 
 	private static final String username = "chitralimbu";
@@ -40,15 +42,10 @@ public class ChitraLimbuApplication {
 		return new GsonBuilder().setPrettyPrinting().create();
 	}
 
-	/*@Bean
-	public HomePageHits homePageHits(MeterRegistry meterRegistry){
-		return new HomePageHits(meterRegistry);
-	}*/
-
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate, JsonParser jsonParser, Gson gson, Gson prettyPrint) throws Exception{
 		return args -> {
-			System.out.println(restTemplate.getForObject("https://api.github.com/rate_limit", String.class));
+			log.debug(restTemplate.getForObject("https://api.github.com/rate_limit", String.class));
 		};
 	}
 	

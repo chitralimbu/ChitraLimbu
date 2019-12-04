@@ -2,6 +2,7 @@ package com.chitra.service;
 
 import java.io.IOException;
 
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -16,6 +17,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.client.gridfs.model.GridFSFile;
 
+@Slf4j
 @Service
 public class VideoService {
 
@@ -31,7 +33,8 @@ public class VideoService {
 		metaData.put("title", title); 
 		ObjectId id = gridFsTemplate.store(
 				file.getInputStream(), file.getName(), file.getContentType(), metaData); 
-		return id.toString(); 
+		log.info(String.format("Successfully uploaded video with title %s", title));
+		return id.toString();
 	}
 
 	public Video getVideo(String id) throws IllegalStateException, IOException { 

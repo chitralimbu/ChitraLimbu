@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Error</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="login" id="other-mainbody">
+        <div id="mainbody-container">
+            <h1 th:text="*{errorCode} + ' Error Code'">Error page</h1>
+            <a href="/">Return home</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

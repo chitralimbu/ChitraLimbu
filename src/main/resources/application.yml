@@ -9,6 +9,11 @@ spring:
   profiles:
     active:
     - development
+
+---
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
 ---
 
 spring:
@@ -24,11 +29,11 @@ spring:
   data:
     mongodb:
       authentication-database: admin
-      host: localhost
+      host: 192.168.0.157
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password:
+      password: Cptgbdllmrh150!
 
 ---
 
@@ -61,3 +66,4 @@ info:
   contact:
     email: chitralimbu@gmail.com
     phone: +447377547833
+

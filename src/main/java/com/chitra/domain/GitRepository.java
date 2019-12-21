@@ -35,7 +35,7 @@ public class GitRepository {
 	private String description;
 	
 	private boolean igonre = false;
-	
+
 	@DBRef
 	private List<GitRepositoryContents> allContents;
 }

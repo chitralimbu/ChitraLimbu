@@ -61,5 +61,9 @@ public class CodeController {
 		model.addAttribute("repositoryContents", repoContents);
 		return "code-topic";
 	}
-	
+
+	/*@GetMapping("/search")
+	public String searchCodeByName(@RequestParam("title") Optional<String> title, Model model){
+		return "code-pageable";
+	}*/
 }

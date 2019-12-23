@@ -1,10 +1,14 @@
 package com.chitra.api;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import com.chitra.resource.ExperienceResource;
+import com.chitra.service.ConvertToResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,20 +27,20 @@ public class ProfileApiController {
     @Autowired
     private ExperienceRepository experienceRepo;
 
-    @GetMapping(value = "/experience", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public List<Experience> allExperience() {
-        return experienceRepo.findAll();
+    @Autowired
+    private ConvertToResourceService convertService;
+
+    @GetMapping(value = "/experience", produces = "application/hal+json")
+    public ResponseEntity<List<ExperienceResource>> allExperience() {
+        return new ResponseEntity<>(convertService.convertToExperienceResourceList(experienceRepo.findAll()), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/experience/{org}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public Experience getExperience(@PathVariable("org") String org) {
-    	return experienceRepo.findByOrganisation(org);
+    @GetMapping(value = "/experience/{org}", produces = "application/hal+json")
+    public ResponseEntity<ExperienceResource> getExperience(@PathVariable("org") String org) {
+    	return new ResponseEntity<>(convertService.convertToExperienceResource(experienceRepo.findByOrganisation(org)), HttpStatus.OK);
     }
 
     @PostMapping(value = "/experience/new")
-    @ResponseStatus(HttpStatus.CREATED)
     public void createNewExperience(@RequestBody Experience experience) {
     	experienceRepo.save(experience);
     }

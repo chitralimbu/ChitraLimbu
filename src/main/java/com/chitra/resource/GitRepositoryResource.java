@@ -5,10 +5,7 @@ import com.chitra.controller.CodeController;
 import com.chitra.domain.GitRepository;
 import lombok.Getter;
 import org.springframework.hateoas.ResourceSupport;
-import org.springframework.ui.Model;
-
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Getter
 public class GitRepositoryResource extends ResourceSupport {

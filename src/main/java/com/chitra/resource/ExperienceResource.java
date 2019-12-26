@@ -15,7 +15,7 @@ public class ExperienceResource extends ResourceSupport {
     public ExperienceResource(final Experience experience) {
         this.experience = experience;
         final String experienceOrg = experience.getOrganisation();
-        add(linkTo(ProfileApiController.class).withRel("all"));
+        add(linkTo(methodOn(ProfileApiController.class).allExperience()).withRel("all"));
         add(linkTo(methodOn(ProfileApiController.class).getExperience(experienceOrg)).withSelfRel());
     }
 }

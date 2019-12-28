@@ -19,6 +19,9 @@ import com.chitra.domain.GitRepositoryContents;
 import com.chitra.repository.GitRepositoryRepository;
 import com.chitra.service.CodeService;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/code")
@@ -62,8 +65,10 @@ public class CodeController {
 		return "code-topic";
 	}
 
-	/*@GetMapping("/search")
-	public String searchCodeByName(@RequestParam("title") Optional<String> title, Model model){
-		return "code-pageable";
-	}*/
+	@GetMapping("/search")
+	public String searchResults(@RequestParam("keyword") Optional<String> keyword, @RequestParam("description") Optional<String> description, HttpServletRequest request, RestTemplate restTemplate){
+		String requestUrl = request.getRequestURL() + request.getQueryString();
+
+		return "code-topic";
+	}
 }

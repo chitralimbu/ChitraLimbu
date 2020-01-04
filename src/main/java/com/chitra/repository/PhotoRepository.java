@@ -6,4 +6,5 @@ import com.chitra.media.domain.Photo;
 
 public interface PhotoRepository extends MongoRepository<Photo, String>{
 	Photo findByTitle(String title);
+	void deleteByTitle(String title);
 }

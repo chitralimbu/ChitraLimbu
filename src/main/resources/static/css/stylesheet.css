@@ -401,3 +401,33 @@ p {
     color: #008BFF;
     text-decoration:none;
 }
+
+/*MEDIA GALLERY CSS*/
+.media-photo{
+        width: auto;
+        height: 60%;
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  grid-auto-rows: 30vh;
+}
+
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-item:hover{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+/*MEDIA GALLERY END*/
+
+/*UPLOAD FILES*/
+/*UPLOAD FILES END*/

@@ -127,6 +127,7 @@ p {
 	margin-top:20px;
 	background-color:black;
 	height:80px;
+	width:100vw;
 }
 
 .footer-text, .footer-text a{
@@ -176,6 +177,7 @@ p {
 	#foot{
 	background-color:black;
 	height:80px;
+	width:100vw;
 }
 
 .footer-text, .footer-text a{

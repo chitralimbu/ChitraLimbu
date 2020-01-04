@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Photos</title>
+</head>
+<!-- repository -->
+<body>
+<div layout:fragment="content">
+    <div class="mainbody-topic">
+        <div id="mainbody-container">
+            <div class="grid-container">
+                <div class="grid-item" th:each="photo : ${allPhotos}">
+                    <p th:text="${photo.key}">Photo Title</p>
+                    <img th:alt="${photo.key}" class="media-photo" th:src="${'data:image/png;base64,'+photo.value}"/>
+                    <!--<button type="Button" class="btn btn-primary">Update</button>-->
+                    <a th:href="@{/media/photos/upload?update=} + ${photo.key}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Update
+                    </a>
+                    <form method="POST" th:action="@{/media/photos/delete/} + ${photo.key}">
+                        <input type="submit" value="Delete" class="btn btn-danger"></input>
+                    </form>
+                </div>
+            </div>
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="width:100vw; padding:none;" >
+                    <div class="modal-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

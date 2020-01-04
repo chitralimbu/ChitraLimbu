@@ -27,7 +27,12 @@ public class DocumentsController {
 		return "uploadDocument";
 	}
 	
-	
+	@GetMapping("/all")
+	public String showAllDocuments(){
+
+		return "documents";
+	}
+
 	@PostMapping("/upload")
 	public String addPhoto(@RequestParam("title") String title, @RequestParam("document") MultipartFile document) throws IOException {
 		docService.addDocument(title, document);

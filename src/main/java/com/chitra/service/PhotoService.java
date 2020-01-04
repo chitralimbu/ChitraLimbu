@@ -1,6 +1,7 @@
 package com.chitra.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 import org.bson.BsonBinarySubType;
@@ -27,6 +28,11 @@ public class PhotoService {
 		log.info(String.format("Successfully uploaded photo with title %s", title));
 		return photo.getId();
 	}
+
+	public void updatePhoto(Photo photo){
+		photoRepo.save(photo);
+		log.info(String.format("Successfully updated photo with title %s", photo.getTitle()));
+	}
 	
 	public Photo getPhoto(String id) {
 		return photoRepo.findById(id).get();
@@ -34,5 +40,13 @@ public class PhotoService {
 	//@Cacheable("photos")
 	public Photo getPhotoByTitle(String title) {
 		return photoRepo.findByTitle(title);
+	}
+
+	public List<Photo> getAllPhoto(){
+		return photoRepo.findAll();
+	}
+
+	public void deletePhotoByTitle(String title){
+		photoRepo.deleteByTitle(title);
 	}
 }

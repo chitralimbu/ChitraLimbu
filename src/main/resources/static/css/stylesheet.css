@@ -430,4 +430,38 @@ p {
 /*MEDIA GALLERY END*/
 
 /*UPLOAD FILES*/
+.button-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.button-grid-item {
+  padding: 0px;
+  margin:0px;
+  /*border-style: solid;*/
+  text-align: center;
+}
+
+.btn{
+    overflow:hidden;
+    font-size:1.5vw;
+}
+
+.buttons{
+    margin-left:auto;
+    margin-right:auto;
+    width:10vw;
+}
+
+@media only screen and (max-width:900px){
+    .grid-container {
+      grid-template-columns: 100vw;
+    }
+
+    .buttons {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+}
+
 /*UPLOAD FILES END*/

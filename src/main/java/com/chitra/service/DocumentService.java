@@ -1,6 +1,7 @@
 package com.chitra.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
@@ -23,7 +24,15 @@ public class DocumentService {
 		doc.setDoc(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
 		docRepo.insert(doc);
 	}
-	
+
+	public List<Documents> getAllDocuments(){
+		return docRepo.findAll();
+	}
+
+	public void updateDocument(Documents document){
+		docRepo.save(document);
+	}
+
 	public Documents getDocByTitle(String title) {
 		return docRepo.findByTitle(title);
 	}

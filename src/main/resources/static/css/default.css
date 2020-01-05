@@ -149,9 +149,18 @@ p {
     padding-top:10vh;
 }
 
+.mainbody-topic{
+    margin-top:-100px;
+    padding-top:100px;
+    width: 70vw;
+    min-height:100vh;
+ }
+
 .profile-form{
     padding-top:5vh;
 }
+
+.mainbo
 
 @media only screen and (max-width: 900px) {
 

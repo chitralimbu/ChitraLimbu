@@ -11,24 +11,23 @@
     <div class="mainbody-topic">
         <div id="mainbody-container">
             <div class="grid-container">
-                <div class="grid-item" th:each="photo : ${allPhotos}">
-                    <p th:text="${photo.key}">Photo Title</p>
-                    <img th:alt="${photo.key}" class="media-photo" th:src="${'data:image/png;base64,'+photo.value}"/>
+                <div class="grid-item" th:each="doc : ${allDocs}">
+                    <p th:text="${doc.title}">Photo Title</p>
                     <!--<button type="Button" class="btn btn-primary">Update</button>-->
                     <div class="buttons">
-                    <div class="button-grid">
-                        <div class="button-grid-item">
-                             <a th:href="@{/media/photos/upload?update=} + ${photo.key}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                             Update
-                             </a>
-                        </div>
+                        <div class="button-grid">
                             <div class="button-grid-item">
-                            <form method="POST" th:action="@{/media/photos/delete/} + ${photo.key}">
-                                <input type="submit" value="Delete" class="btn btn-danger"></input>
-                            </form>
+                                <a th:href="@{/media/document/upload}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    Update
+                                </a>
+                            </div>
+                            <div class="button-grid-item">
+                                <form method="POST" th:action="@{/media/document/delete/}">
+                                    <input type="submit" value="Delete" class="btn btn-danger"></input>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div id="myModal" class="modal fade" role="dialog">

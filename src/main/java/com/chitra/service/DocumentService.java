@@ -40,5 +40,9 @@ public class DocumentService {
 	public Documents getDocById(String id) {
 		return docRepo.findById(id).get();
 	}
+
+	public void deleteDocByTitle(String title){
+		docRepo.deleteByTitle(title);
+	}
 	
 }

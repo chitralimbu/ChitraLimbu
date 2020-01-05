@@ -449,7 +449,7 @@ p {
 .buttons{
     margin-left:auto;
     margin-right:auto;
-    width:10vw;
+    width:fit-content;
 }
 
 @media only screen and (max-width:900px){

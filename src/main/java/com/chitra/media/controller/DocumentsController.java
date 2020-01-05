@@ -1,14 +1,16 @@
 package com.chitra.media.controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
+import com.chitra.media.domain.Documents;
+import com.chitra.media.domain.Photo;
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.chitra.service.DocumentService;
@@ -23,8 +25,11 @@ public class DocumentsController {
 	@Autowired
 	private DocumentService docService;
 	
-	@GetMapping
-	public String uploadDocument() {
+	@GetMapping("/upload")
+	public String uploadDocument(@RequestParam("update") Optional<String> title, Model model) {
+		if(title.isPresent()){
+			model.addAttribute("update", title.get());
+		}
 		return "uploadDocument";
 	}
 	
@@ -34,11 +39,25 @@ public class DocumentsController {
 		return "documents";
 	}
 
-	@PostMapping("/upload")
-	public String addPhoto(@RequestParam("title") String title, @RequestParam("document") MultipartFile document) throws IOException {
-		docService.addDocument(title, document);
+	@PostMapping("/add")
+	public String addPhoto(@RequestParam("title") String title, @RequestParam("document") MultipartFile document, @RequestParam("update") Optional<String> update, Model model) throws IOException {
+		if(update.isPresent()){
+			log.info(String.format("Updating document with title %s", title));
+			Documents doc = docService.getDocByTitle(title);
+			doc.setDoc(new Binary(BsonBinarySubType.BINARY, document.getBytes()));
+			docService.updateDocument(doc);
+		}else{
+			log.info(String.format("Uploading new document with title %s", title));
+			docService.addDocument(title, document);
+		}
 		log.debug("File uploaded successfully");
-		return "redirect:/";
+		return "redirect:/media/document/all";
 	}
-	
+
+	@PostMapping("/delete/{title}")
+	public String deletePhoto(@PathVariable String title){
+		docService.deleteDocByTitle(title);
+		return "redirect:/media/document/all";
+	}
+
 }

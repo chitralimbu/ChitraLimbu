@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org" lang="en"
       layout:decorate="~{layouts/layout}">
 <head>
-    <title>Photos</title>
+    <title>Document</title>
 </head>
 <!-- repository -->
 <body>
@@ -12,17 +12,17 @@
         <div id="mainbody-container">
             <div class="grid-container">
                 <div class="grid-item" th:each="doc : ${allDocs}">
-                    <p th:text="${doc.title}">Photo Title</p>
+                    <a th:href="@{/download/document/} + ${doc.title}" th:text="${doc.title}">Document Title</a>
                     <!--<button type="Button" class="btn btn-primary">Update</button>-->
                     <div class="buttons">
                         <div class="button-grid">
                             <div class="button-grid-item">
-                                <a th:href="@{/media/document/upload}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                <a th:href="@{/media/document/upload?update=} + ${doc.title}" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                                     Update
                                 </a>
                             </div>
                             <div class="button-grid-item">
-                                <form method="POST" th:action="@{/media/document/delete/}">
+                                <form method="POST" th:action="@{/media/document/delete/} + ${doc.title}">
                                     <input type="submit" value="Delete" class="btn btn-danger"></input>
                                 </form>
                             </div>

@@ -15,6 +15,7 @@
 <body>
 <div layout:fragment="content">
 	<div class="mainbody-topic">
+		<div id="mainbody-container">
 		<div class="code-left" id="left-side">
 			<div class="vertical-menu">
 				<a th:each="heading : ${headings}" th:href="'#' + ${heading}" th:text="${heading}">Nav</a>
@@ -35,6 +36,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 </body>

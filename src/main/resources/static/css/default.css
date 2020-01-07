@@ -83,39 +83,10 @@ p {
 	overflow:hiden;
 }
 
-.home-code {
-	color:black;
-	font-size:1vw;
-	padding: 0px 15px 0px 15px;
-}
-
-.home-code-head{
-	color:black;
-	font-size:1.5vw;
-	padding:5px 15px 5px 15px;
-}
 .repo-contents {
 	width: 100%;
 	margin-left: 6%;
 	margin-right: auto;
-}
-
-.home-repositories {
-	margin-top: 20px;
-	width: 100%;
-	margin-left: 6%;
-	margin-right: auto;
-}
-
-.home-repositories div {
-	float: left;
-	height: 10vw;
-	margin: 1%;
-	width: 20%;
-	border-radius:2px;
-	border-style: solid;
-	border-width:thin;
-	border-color: black;
 }
 
 .comp:hover {
@@ -160,7 +131,49 @@ p {
     padding-top:5vh;
 }
 
-.mainbo
+
+/*HOME REPO CSS*/
+.repo-home-container {
+  display: grid;
+  grid-template-columns: 24vw 24vw 24vw 24vw;
+  grid-auto-rows: 25vh;
+  justify-content: center;
+}
+
+.home-repo-head{
+    font-size:1.5vw;
+}
+.home-repo-desc{
+    font-size:1vw;
+}
+
+.repo-home-link{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin:10px;
+    text-decoration: none;
+    color:black;
+    transition: transform .2s;
+}
+
+.repo-home-link:hover{
+    text-decoration:underline;
+    color:black;
+    transform: scale(1.1);
+}
+
+.repo-home-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.repo-container{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+/*END HOME REPO CSS*/
+
 
 @media only screen and (max-width: 900px) {
 
@@ -168,21 +181,6 @@ p {
         padding-top:10vh;
     }
 
-	.home-repositories {
-		margin: -1%;
-		padding: 20px;
-	}
-	.home-repositories div {
-		float: left;
-		height: 30vw;
-		margin: 1%;
-		width: 100%;
-		border-style: solid;
-	}
-	.home-code {
-	    font-size:2.7vw;
-		text-align: center;
-	}
 	#foot{
 	background-color:black;
 	height:80px;
@@ -195,9 +193,17 @@ p {
 	padding-top:6%;
 }
 
-.home-code-head{
-	text-align: center;
-	color:black;
-	font-size:5vw;
+.repo-home-container {
+  display: grid;
+  grid-template-columns: 90vw;
 }
+
+.home-repo-head{
+    font-size:4vw;
+}
+.home-repo-desc{
+    font-size:3vw;
+}
+
+
 }

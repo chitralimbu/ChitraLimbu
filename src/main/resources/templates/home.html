@@ -30,6 +30,17 @@
 			<div id="down"><a href="#repo"><span id="down-icon" class="glyphicon glyphicon-menu-down"></span></a></div>
 		</div>
 	</div>
+	<div class="repo-container">
+	<div class="repo-home-container" id="repo" style="padding-top: 85px; margin-top: -85px;">
+		<a class="repo-home-link" th:each="repo: ${gitRepo}" th:href="@{/code/} + ${repo.name}">
+			<div class="repo-home-item">
+				<h1 class="home-repo-head" th:text="${repo.name}">Repo name</h1>
+				<p class="home-repo-desc" th:text="${repo.description}">Description</p>
+			</div>
+		</a>
+	</div>
+	</div>
+	<!--
 	<div class="repo" id="repo" style="padding-top: 85px; margin-top: -85px;">
 		<section class="home-repositories">
 			<a th:each="repo: ${gitRepo}" th:href="@{/code/} + ${repo.name}">
@@ -40,6 +51,7 @@
 			</a>
 		</section>
 	</div>
+	-->
 </div>
 </body>
 </html>

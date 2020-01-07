@@ -221,21 +221,20 @@ p {
 
 .code-right, .code-left {
 	float: left;
-	margin-top: 60px;
 }
 
 .code-left {
-	width: 25%;
+	width:  30vw;
 	position: fixed;
-	height: 87%;
+	height: 90vh;
 	overflow-y: scroll;
 	background-color: #eee;
 }
 
 .code-right {
-	width: 73%;
+	width: 66vw;
 	height:100%;
-	margin-left: 22%;
+	margin-left: 27vw;
 }
 
 
@@ -244,9 +243,9 @@ p {
 		visibility: hidden;
 	}
 	#right-side {
-		margin-left: -6%;
-		margin-right: 0%;
-		width: 100%;
+		margin-left: 0vw;
+		margin-right: 0vw;
+		width: 90vw;
 	}
 }
 
@@ -464,4 +463,11 @@ p {
     }
 }
 
+.upload-media{
+    padding:20px;
+}
+
+.btn-default, .btn-primary{
+    width: fit-content;
+}
 /*UPLOAD FILES END*/

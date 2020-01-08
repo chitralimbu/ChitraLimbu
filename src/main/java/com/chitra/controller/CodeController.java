@@ -5,9 +5,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpRequest;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Slf4j
 @Controller
 @RequestMapping("/code")
 public class CodeController {
@@ -66,9 +70,18 @@ public class CodeController {
 	}
 
 	@GetMapping("/search")
-	public String searchResults(@RequestParam("keyword") Optional<String> keyword, @RequestParam("description") Optional<String> description, HttpServletRequest request, RestTemplate restTemplate){
-		String requestUrl = request.getRequestURL() + request.getQueryString();
+	public String searchResults(@RequestParam("search") String search, RestTemplate restTemplate, @RequestParam("page") Optional<Integer> page, Model model, HttpServletRequest request){
+		/*String allSearchResult = restTemplate.getForObject("")
+		model.addAttribute("pageNumbers", 1);
+		model.addAttribute("activeGitList", true);
+		model.addAttribute("gitList", pageRepository.getContent());*/
 
-		return "code-topic";
+		String scheme = request.getScheme() + "://";
+		String serverName = request.getServerName();
+		String serverPort = (request.getServerPort() == 80) ? "" : ":" + request.getServerPort();
+		String contextPath = request.getContextPath();
+		log.info(scheme + serverName + serverPort + contextPath);
+
+		return "redirect:/";
 	}
 }

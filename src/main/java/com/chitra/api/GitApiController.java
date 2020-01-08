@@ -31,7 +31,7 @@ public class GitApiController {
 	@Autowired
 	private ConvertToResourceService convertService;
 
-	@PutMapping(value = "/full-refresh", produces = "application/hal+json")
+	@PutMapping(value = "/hal/full-refresh", produces = "application/hal+json")
 	public ResponseEntity<List<GitRepositoryResource>> fullRefresh(RestTemplate restTemplate, Gson gson){
 		List<GitRepository> allRepositories = gitRepoService
 						.generateFinalGitRepository(restTemplate, gson, gitRepoService.fullRefreshGitRepository(restTemplate, gson));
@@ -43,18 +43,20 @@ public class GitApiController {
 		return new ResponseEntity<List<GitRepositoryResource>>(convertService.convertToGitRepoResourceList(gitRepo.findAll()), HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/{repository}", produces = "application/hal+json")
+	@GetMapping(value = "/hal/{repository}", produces = "application/hal+json")
 	public ResponseEntity<GitRepositoryResource> getRepository(@PathVariable("repository") String repository) {
 		return new ResponseEntity<GitRepositoryResource>(convertService.convertToGitRepoResource(gitRepo.findByName(repository)), HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/new/{repository}", produces = "application/hal+json")
+	@PostMapping(value = "/hal/new/{repository}", produces = "application/hal+json")
 	public ResponseEntity<GitRepositoryResource> addNewRepository(@PathVariable("repository") String repository, RestTemplate restTemplate, Gson gson){
 		return new ResponseEntity<GitRepositoryResource>(convertService.convertToGitRepoResource(gitRepoService.updateRepository(repository, restTemplate, gson)), HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/refresh/{repository}", produces = "application/hal+json")
+	@PutMapping(value = "/hal/refresh/{repository}", produces = "application/hal+json")
 	public ResponseEntity<GitRepositoryResource> updateRepository(@PathVariable("repository") String repository, RestTemplate restTemplate, Gson gson) {
 		return new ResponseEntity<GitRepositoryResource>(convertService.convertToGitRepoResource(gitRepoService.updateRepository(repository, restTemplate, gson)), HttpStatus.OK);
 	}
+
+
 }

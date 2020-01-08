@@ -33,7 +33,7 @@ spring:
       port: 27017
       database: ChitraLimbu
       username: chitra
-      password:
+      password: Cptgbdllmrh150!
 
 ---
 

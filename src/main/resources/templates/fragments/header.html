@@ -11,7 +11,7 @@
 			<li id="nav-custom"><a class="nav" th:href="@{/code}">Code</a></li>
 			<li id="nav-custom"><a class="nav" th:href="@{/timeline}">Timeline</a></li>
 			<li id="nav-custom">
-				<form method="GET" class="navbar-form navbar-left">
+				<form method="GET" th:action="@{/code/search}" class="navbar-form navbar-left">
 					<div class="form-group">
 						<input name="search" type="text" class="form-control" placeholder="Search">
 					</div>

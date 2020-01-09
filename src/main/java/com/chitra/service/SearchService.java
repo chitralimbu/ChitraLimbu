@@ -30,4 +30,6 @@ public class SearchService {
     public Set<GitRepository> findInDescriptionAndName(String keyword, String description){
         return Stream.of(findInNameByKeyword(keyword), findInDescriptionByKeyword(description)).flatMap(Collection::stream).collect(Collectors.toSet());
     }
+
+
 }

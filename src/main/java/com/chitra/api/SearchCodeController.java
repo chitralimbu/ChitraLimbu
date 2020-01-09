@@ -15,10 +15,7 @@ import org.springframework.hateoas.Resources;
 import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,5 +47,16 @@ public class SearchCodeController {
         }
         log.info(String.format(request.getRequestURL() + request.getQueryString()));
         return new ResponseEntity<Set<GitRepository>>(allRepo, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/test/{search}")
+    public ResponseEntity<List<GitRepository>> searchResults(@PathVariable("search") String search){
+        long start = System.currentTimeMillis();
+        log.info("Searching for term: " + search);
+        List<GitRepository> foundRepo = gitRepo.findByNameContainingIgnoreCase(search);
+        long end = System.currentTimeMillis() - start;
+        log.info(String.format("Searching for %s took %d", search, end));
+        return new ResponseEntity<>(foundRepo, HttpStatus.OK);
     }
 }

@@ -1,0 +1,82 @@
+version: "3"
+services:
+  mongo1:
+    hostname: mongo1
+    container_name: mongo1
+    image: mongo:4.0.4
+    volumes:
+      - /home/ec2-user/mongo-data1/db:/data/db
+      - /home/ec2-user/mongo-data1/configdb:/data/configdb
+    networks:
+      - chitralimbu-docker-mongo
+    expose:
+      - 27017
+    ports:
+      - 30001:27017
+    restart: always
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "chitra-mongo"]
+  mongo2:
+    hostname: mongo2
+    container_name: mongo2
+    image: mongo:4.0.4
+    volumes:
+      - /home/ec2-user/mongo-data2/db:/data/db
+      - /home/ec2-user/mongo-data2/configdb:/data/configdb
+    networks:
+      - chitralimbu-docker-mongo
+    expose:
+      - 27017
+    ports:
+      - 30002:27017
+    restart: always
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "chitra-mongo"]
+  mongo3:
+    hostname: mongo3
+    container_name: mongo3
+    image: mongo:4.0.4
+    volumes:
+      - /home/ec2-user/mongo-data3/db:/data/db
+      - /home/ec2-user/mongo-data3/configdb:/data/configdb
+    networks:
+      - chitralimbu-docker-mongo
+    expose:
+      - 27017
+    ports:
+      - 30003:27017
+    restart: always
+    entrypoint: ["/usr/bin/mongod", "--bind_ip_all", "--replSet", "chitra-mongo"]
+  chitralimbu:
+    hostname: chitralimbu
+    container_name: chitralimbu
+    image: chitralimbu/chitralimbu:latest
+    networks:
+      - chitralimbu-docker-mongo
+    ports:
+      - 8080:8080
+    restart: always
+  chitralimbu1:
+    hostname: chitralimbu1
+    container_name: chitralimbu1
+    image: chitralimbu/chitralimbu:latest
+    networks:
+      - chitralimbu-docker-mongo
+    ports:
+      - 8181:8080
+    restart: always
+  production-nginx-container:
+    container_name: 'production-nginx-container'
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./production.conf:/etc/nginx/conf.d/default.conf
+      - ./production-site:/usr/share/nginx/html
+      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/etc/letsencrypt/live/chitralimbu.com/fullchain.pem:/etc/letsencrypt/live/chitralimbu.com/fullchain.pem
+      - /docker-volumes/etc/letsencrypt/live/chitralimbu.com/privkey.pem:/etc/letsencrypt/live/chitralimbu.com/privkey.pem
+    networks:
+      - chitralimbu-docker-mongo
+
+networks:
+  chitralimbu-docker-mongo:

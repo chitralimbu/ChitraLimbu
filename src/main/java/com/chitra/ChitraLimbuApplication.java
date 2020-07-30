@@ -47,7 +47,7 @@ public class ChitraLimbuApplication {
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate, JsonParser jsonParser, Gson gson, Gson prettyPrint) throws Exception{
 		return args -> {
-			log.debug(restTemplate.getForObject("https://api.github.com/rate_limit", String.class));
+			/*log.debug(restTemplate.getForObject("https://api.github.com/rate_limit", String.class));*/
 		};
 	}
 	

@@ -8,7 +8,7 @@ server:
 spring:
   profiles:
     active:
-    - development
+    - production
 
 ---
 spring:
@@ -20,7 +20,7 @@ spring:
   profiles: production
   data:
     mongodb:
-      uri: mongodb://mongodb/chitralimbu
+      uri: mongodb://mongo1,mongo2,mongo3:27017/chitralimbu
 
 ---
 

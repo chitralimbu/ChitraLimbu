@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestTemplate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,12 +22,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 @Slf4j
 public class ChitraLimbuApplication {
 
-	private static final String username = "chitralimbu";
-	private static final String password = "";
-	
 	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.basicAuthentication(username, password).build();
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 
 	@Bean

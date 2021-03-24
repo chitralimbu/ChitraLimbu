@@ -8,7 +8,7 @@ server:
 spring:
   profiles:
     active:
-    - production
+    - development
 
 ---
 spring:
@@ -24,16 +24,24 @@ spring:
 
 ---
 
+#spring:
+#  profiles: development
+#  data:
+#    mongodb:
+#      authentication-database: admin
+#      host: localhost
+#      port: 27017
+#      database: ChitraLimbu
+#      username: chitra
+#      password:
+
 spring:
   profiles: development
   data:
     mongodb:
-      authentication-database: admin
-      host: 192.168.0.157
+      host: 192.168.0.88
       port: 27017
       database: ChitraLimbu
-      username: chitra
-      password: 
 
 ---
 
